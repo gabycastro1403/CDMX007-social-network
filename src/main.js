@@ -28,16 +28,16 @@ login.addEventListener("click", () => {
 
 
 
-register.addEventListener("click", () => {
+// register.addEventListener("click", () => {
   
-  const mailUser = mail.value;
-  const passwordUser = password.value;
-  const auth = firebase.auth();
-  const promise = auth.createUserWithEmailAndPassword(mailUser,passwordUser);
-  promise
-    .catch ( e => console.log(e.message));
+//   const mailUser = mail.value;
+//   const passwordUser = password.value;
+//   const auth = firebase.auth();
+//   const promise = auth.createUserWithEmailAndPassword(mailUser,passwordUser);
+//   promise
+//     .catch ( e => console.log(e.message));
 
-});
+// });
 
 firebase.auth().onAuthStateChanged ( firebaseUser => {
   if (firebaseUser){
