@@ -25,7 +25,7 @@ body {
 
 #logo{
     width: 70%;
-    height: 43%; 
+    height: 40%; 
     background-color: white;
     border-radius: 50%; 
     border-color: #ef9898;
@@ -54,6 +54,13 @@ h1 {
     border-bottom-color: #ef9898; 
 }
 
+#content {
+    float: right; 
+    text-align: right; 
+    margin-right: 20px; 
+    width: 75%; 
+}
+
 #button-login{
     width: 40%; 
     background-color: #ef9898; 
@@ -61,8 +68,6 @@ h1 {
     border: 0; 
     border-radius: 5px; 
     color: white; 
-    float: right; 
-    margin-right: 20px; 
     font-size: 1em; 
 }
 
@@ -72,9 +77,19 @@ h1 {
     text-align: right; 
 }
 
-#register {
-    font-size: 1em; 
+#register, #forgot-password {
+    font-size: 0.9em; 
     color: #ef9898; 
     background-color: white;
     border: 0; 
+}
+
+#logo-fb, #logo-google {
+    width: 100%;
+}
+
+.logo-red {
+    display: inline-block; 
+    width: 25%;
+
 }
