@@ -9,12 +9,12 @@ var config = {
   firebase.initializeApp(config);
 
 const mail = document.getElementById("mail");
-const registro = document.getElementById("registro");
+const register = document.getElementById("register");
 const password = document.getElementById("password");
-const entrar = document.getElementById("entrar");
+const login = document.getElementById("button-login");
 
 
-entrar.addEventListener("click", () => {
+login.addEventListener("click", () => {
   
   const mailUser = mail.value;
   const passwordUser = password.value;
@@ -28,7 +28,7 @@ entrar.addEventListener("click", () => {
 
 
 
-registro.addEventListener("click", () => {
+register.addEventListener("click", () => {
   
   const mailUser = mail.value;
   const passwordUser = password.value;
