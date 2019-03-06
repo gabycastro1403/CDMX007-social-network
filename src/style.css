@@ -77,7 +77,7 @@ h1 {
     text-align: right; 
 }
 
-#register, #forgot-password {
+#register-one, #forgot-password {
     font-size: 0.9em; 
     color: #ef9898; 
     background-color: white;
@@ -91,5 +91,36 @@ h1 {
 .logo-red {
     display: inline-block; 
     width: 25%;
+}
 
+#content-form {
+    width: 80%;
+    margin: 0 auto; 
+    margin-top: 10%; 
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.form-row{
+    color: white; 
+}
+
+.form-control:focus {
+    color: black; 
+}
+
+.form-control {
+    color: #ef9898; 
+}
+
+.form-control::placeholder {
+    color: #ef9898; 
+}
+
+
+#register {
+    margin-left: 15px; 
+    font-size: 1em; 
+    color: #ef9898; 
+    background-color: white;
+    border: 0; 
 }
