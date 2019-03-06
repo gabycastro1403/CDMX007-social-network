@@ -71,3 +71,10 @@ h1 {
     color: #ef9898; 
     text-align: right; 
 }
+
+#register {
+    font-size: 1em; 
+    color: #ef9898; 
+    background-color: white;
+    border: 0; 
+}
