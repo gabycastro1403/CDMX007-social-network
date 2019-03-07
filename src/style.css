@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
 body {
-  background-color: #ef9898; 
+  background-color: #784950; 
 
 }
 
@@ -28,7 +28,7 @@ body {
     height: 40%; 
     background-color: white;
     border-radius: 50%; 
-    border-color: #ef9898;
+    border-color: #596075;
     border-width: 3px;
     border-style: solid;
     margin: 0 auto; 
@@ -37,7 +37,7 @@ body {
 }
 
 h1 {
-    color: #ef9898;
+    color: #596075;
     font-family: 'Nanum Gothic', sans-serif;
     text-align: center; 
     font-size: 1.5em; 
@@ -45,13 +45,13 @@ h1 {
 
 .input-login::placeholder, .input-login {
     width: 70%;
-    color: #ef9898;
+    color: #596075;
     font-family: 'Nanum Gothic', sans-serif;
     border-top: 0px; 
     border-right: 0px; 
     border-left: 0px; 
     border-bottom-width: 2px; 
-    border-bottom-color: #ef9898; 
+    border-bottom-color: #596075; 
 }
 
 #content {
@@ -63,7 +63,7 @@ h1 {
 
 #button-login{
     width: 40%; 
-    background-color: #ef9898; 
+    background-color: #596075; 
     font-family: 'Nanum Gothic', sans-serif;
     border: 0; 
     border-radius: 5px; 
@@ -73,13 +73,13 @@ h1 {
 
 .options{
     font-size: 1em; 
-    color: #ef9898; 
+    color: #596075; 
     text-align: right; 
 }
 
 #register-one, #forgot-password {
     font-size: 0.9em; 
-    color: #ef9898; 
+    color: #596075; 
     background-color: white;
     border: 0; 
 }
@@ -109,18 +109,18 @@ h1 {
 }
 
 .form-control {
-    color: #ef9898; 
+    color: #596075; 
 }
 
 .form-control::placeholder {
-    color: #ef9898; 
+    color: #596075; 
 }
 
 
 #register {
     margin-left: 15px; 
     font-size: 1em; 
-    color: #ef9898; 
+    color: #596075; 
     background-color: white;
     border: 0; 
 }
