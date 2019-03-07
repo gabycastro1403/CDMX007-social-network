@@ -57,7 +57,9 @@ logoGoogle.addEventListener("click", () => {
   firebase.auth().signInWithRedirect(baseProvider)
   .catch (e => console.log(e.message));
  
-});
+})
+}
+ 
 
 logoFacebok.addEventListener("click", () =>{
     alert("holi")
@@ -82,7 +84,7 @@ logoFacebok.addEventListener("click", () =>{
       });
     });
       
-}
+
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
