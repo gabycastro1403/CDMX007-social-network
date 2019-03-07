@@ -26,9 +26,17 @@ if ((location.href.match(/registro.html$/gm))) {
       const passwordUser = password.value;
       console.log(mailUser, passwordUser)
       const auth = firebase.auth();
-      const promise = auth.createUserWithEmailAndPassword(mailUser, passwordUser);
-      promise
-          .catch(e => alert(e.message));
+      auth.createUserWithEmailAndPassword(mailUser, passwordUser);
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          if(!location.href.match(/muro.html$/gm)){
+            location.replace('muro.html');
+          } 
+        } else {
+            alert("No reegistrado");
+    
+        }
+    })
 
   });
 }else if ((location.href.match(/muro.html$/gm))){
