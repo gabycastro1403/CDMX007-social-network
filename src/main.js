@@ -20,7 +20,7 @@ const logoFacebok = document.getElementById("logo-fb")
 
 
 
-if (location.pathname === "/src/views/registro.html") {
+if ((location.href.match(/registro.html$/gm))) {
   register.addEventListener("click", () => {
       const mailUser = mail.value;
       const passwordUser = password.value;
@@ -31,14 +31,14 @@ if (location.pathname === "/src/views/registro.html") {
           .catch(e => alert(e.message));
 
   });
-}else if (location.pathname === "/src/views/muro.html"){
+}else if ((location.href.match(/muro.html$/gm))){
 
   
 logOut.addEventListener('click', () =>{
   alert("si funciono");
   firebase.auth().signOut();
   location.replace('../index.html');
-})
+});
 
 }else{
   login.addEventListener("click", () => {
@@ -57,7 +57,9 @@ logoGoogle.addEventListener("click", () => {
   firebase.auth().signInWithRedirect(baseProvider)
   .catch (e => console.log(e.message));
  
-});
+})
+
+ 
 
 logoFacebok.addEventListener("click", () =>{
     alert("holi")
@@ -81,8 +83,8 @@ logoFacebok.addEventListener("click", () =>{
         // ...
       });
     });
-      
-}
+  } 
+
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
