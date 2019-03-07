@@ -15,6 +15,7 @@ const login = document.getElementById("button-login");
 const mailLogin = document.getElementById("mail-login");
 const passLogin = document.getElementById("password-login");
 const logoGoogle = document.getElementById("logo-google");
+const logoFacebok = document.getElementById("logo-fb")
 
 
 if (location.pathname === "/src/views/registro.html") {
@@ -51,6 +52,21 @@ logoGoogle.addEventListener("click", () => {
 
 }
 
+logoFacebok.addEventListener("click", () =>{
+const provider = new firebase.auth.FacebookAuthProvider();
+firebase.auth().getRedirectResult().then(function(result) {
+    if (result.credential) {
+      var token = result.credential.accessToken;
+    }
+    var user = result.user;
+  }).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    var email = error.email;
+    var credential = error.credential;
+  });
+
+})
   
     
     
@@ -61,10 +77,10 @@ logoGoogle.addEventListener("click", () => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
-        // location.replace('views/muro.html')
+         //location.replace('views/muro.html')
     } else {
         console.log("No reegistrado");
-        // location.replace('index.html')
+        //location.replace('index.html')
 
 
     }
