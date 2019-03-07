@@ -15,6 +15,7 @@ const login = document.getElementById("button-login");
 const mailLogin = document.getElementById("mail-login");
 const passLogin = document.getElementById("password-login");
 const logoGoogle = document.getElementById("logo-google");
+const logOut = document.getElementById("log-out");
 
 
 if (location.pathname === "/src/views/registro.html") {
@@ -28,44 +29,44 @@ if (location.pathname === "/src/views/registro.html") {
           .catch(e => alert(e.message));
 
   });
-}else{
+}else if (location.pathname === "/src/views/muro.html"){
 
+  
+logOut.addEventListener('click', () =>{
+  alert("si funciono");
+  firebase.auth().signOut();
+  location.replace('../index.html');
+})
+
+}else{
   login.addEventListener("click", () => {
     const mailUser = mailLogin.value;
     const passwordUser = passLogin.value;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(mailUser, passwordUser);
-    promise
-    .then(location.replace("views/muro.html"))
-    .catch(e => alert(e.message));
+     promise
+     .then(location.replace("views/muro.html"))
+     .catch(e => alert(e.message));
 });       
 
 logoGoogle.addEventListener("click", () => {
   alert("Si funciono");
   const baseProvider = new firebase.auth.GoogleAuthProvider()
-  firebase.auth().signInWithRedirect(baseProvider).then(result => console.log(result.message))
+  firebase.auth().signInWithRedirect(baseProvider)
   .catch (e => console.log(e.message));
   
 })
-
-
 }
 
   
-    
-    
-   
-
-
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log(firebaseUser);
-        // location.replace('views/muro.html')
+      if(!location.href.match(/muro.html$/gm)){
+        location.replace('views/muro.html');
+      } 
     } else {
-        console.log("No reegistrado");
-        // location.replace('index.html')
-
-
+        alert("No reegistrado");
+        
     }
 })
