@@ -16,6 +16,8 @@ const mailLogin = document.getElementById("mail-login");
 const passLogin = document.getElementById("password-login");
 const logoGoogle = document.getElementById("logo-google");
 const logOut = document.getElementById("log-out");
+const logoFacebok = document.getElementById("logo-fb")
+
 
 
 if (location.pathname === "/src/views/registro.html") {
@@ -54,11 +56,37 @@ logoGoogle.addEventListener("click", () => {
   const baseProvider = new firebase.auth.GoogleAuthProvider()
   firebase.auth().signInWithRedirect(baseProvider)
   .catch (e => console.log(e.message));
-  
+ 
 })
 }
+ 
+});
 
-  
+logoFacebok.addEventListener("click", () =>{
+    alert("holi")
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithRedirect(provider).then(function(result) {
+        if (result.credential) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          // ...
+        }
+        // The signed-in user info.
+        var user = result.user;
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    });
+      
+}
+
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -67,6 +95,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       } 
     } else {
         alert("No reegistrado");
-        
+
     }
 })
