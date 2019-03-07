@@ -44,7 +44,7 @@ h1 {
 }
 
 .input-login::placeholder, .input-login {
-    width: 80%;
+    width: 70%;
     color: #ef9898;
     font-family: 'Nanum Gothic', sans-serif;
     border-top: 0px; 
@@ -124,3 +124,8 @@ h1 {
     background-color: white;
     border: 0; 
 }
+
+.icons {
+    width: 15%; 
+}
+
