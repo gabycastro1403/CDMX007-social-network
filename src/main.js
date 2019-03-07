@@ -60,7 +60,6 @@ logoGoogle.addEventListener("click", () => {
 })
 }
  
-});
 
 logoFacebok.addEventListener("click", () =>{
     alert("holi")
@@ -85,7 +84,7 @@ logoFacebok.addEventListener("click", () =>{
       });
     });
       
-}
+
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
