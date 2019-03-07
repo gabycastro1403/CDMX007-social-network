@@ -93,8 +93,6 @@ logoFacebok.addEventListener("click", () =>{
     });
   } 
 
-
-
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       if(!location.href.match(/muro.html$/gm)){
