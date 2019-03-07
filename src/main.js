@@ -1,3 +1,4 @@
+
 //eventos de DO
 
 var config = {
@@ -55,7 +56,7 @@ logOut.addEventListener('click', () =>{
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(mailUser, passwordUser);
      promise
-     .then(location.href.match(/muro.html$/gm))
+     .then(location.replace("views/muro.html"))
      .catch(e => alert(e.message));
 });       
 
@@ -93,10 +94,12 @@ logoFacebok.addEventListener("click", () =>{
     });
   } 
 
+
+
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       if(!location.href.match(/muro.html$/gm)){
-        location.replace('muro.html');
+        location.replace('views/muro.html');
       } 
     } else {
         alert("No reegistrado");
