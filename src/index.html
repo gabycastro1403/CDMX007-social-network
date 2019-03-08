@@ -20,6 +20,10 @@
         };
       </script>
       <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<fb:login-button 
+scope="public_profile,email"
+onlogin="checkLoginState();">
+</fb:login-button>
 
 <section id="login">
 <aside id="login-white"> 
@@ -42,7 +46,9 @@
     </div>
     <a id="register-one" href="./views/registro.html"> Don't have an account? Sign up here</a>
     <button id="forgot-password" type="button">Forgot your password?</button>
+    <div id="fb-root"></div>
     </aside>
+    
 
   </section>
 

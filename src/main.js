@@ -42,6 +42,12 @@ const logoFacebok = document.getElementById("logo-fb")
     };
 });
 
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
 if (location.pathname === "/src/views/registro.html") {
   register.addEventListener("click", () => {
       const mailUser = mail.value;
