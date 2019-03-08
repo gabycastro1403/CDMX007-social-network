@@ -20,53 +20,41 @@ const logoFacebok = document.getElementById("logo-fb")
 
 
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-
-    const response= {
-        status: 'connected',
-        authResponse: {
-            accessToken: '...',
-            expiresIn:'...',
-            signedRequest:'...',
-            userID:'...'
-        }
-    };
-});
-
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-if (location.pathname === "/src/views/registro.html") {
+if ((location.href.match(/registro.html$/gm))) {
   register.addEventListener("click", () => {
       const mailUser = mail.value;
       const passwordUser = password.value;
       console.log(mailUser, passwordUser)
       const auth = firebase.auth();
-      const promise = auth.createUserWithEmailAndPassword(mailUser, passwordUser);
-      promise
-          .catch(e => alert(e.message));
+      auth.createUserWithEmailAndPassword(mailUser, passwordUser);
+      var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
+
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          if(!location.href.match(/muro.html$/gm)){
+            location.replace('muro.html');
+          } 
+        } else {
+            alert("No reegistrado");
+    
+        }
+    })
 
   });
-}else if (location.pathname === "/src/views/muro.html"){
+}else if ((location.href.match(/muro.html$/gm))){
 
   
 logOut.addEventListener('click', () =>{
   alert("si funciono");
   firebase.auth().signOut();
   location.replace('../index.html');
-})
+});
 
 }else{
   login.addEventListener("click", () => {
@@ -86,7 +74,7 @@ logoGoogle.addEventListener("click", () => {
   .catch (e => console.log(e.message));
  
 })
-}
+
  
 
 logoFacebok.addEventListener("click", () =>{
@@ -111,7 +99,7 @@ logoFacebok.addEventListener("click", () =>{
         // ...
       });
     });
-      
+  } 
 
 
 
