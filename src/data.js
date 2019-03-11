@@ -1,4 +1,3 @@
-
 if ((location.href.match(/muro.html$/gm))){
   
   const perfil = document.getElementById("perfil");
