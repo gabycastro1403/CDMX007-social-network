@@ -114,18 +114,39 @@ h1 {
 }
 
 .form-control {
-    color: #5F023A;
+    color: #682c2c;
 }
 
 .form-control::placeholder {
-    color: #5F023A;
+    color: #682c2c;
 }
 
 
 #register {
     margin-left: 15px;
     font-size: 1em;
-    color: #5F023A;
+    color: #682c2c;
     background-color: white;
     border: 0;
+}
+
+/* Estilos del muro  */
+#menu {
+    width: 100%;
+    position: fixed; 
+    bottom: 0px; 
+    margin: 0 auto; 
+
+}
+
+.menus {
+    width: 30%;
+    margin: 3px; 
+    background-color: #682c2c;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    font-size: 0.8em;
 }

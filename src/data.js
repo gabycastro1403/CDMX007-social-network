@@ -25,7 +25,7 @@ const printData = (querySnapshot) => {
 var user = firebase.auth().currentUser;
 if (user != null) {
   user.providerData.forEach(function (profile) {
-    data.innerHTML = "";
+    data.innerHTML = ""; 
     let profileUSer=`<div>
     <img src="${profile.photoURL}">
     <p>${profile.displayName}</p>
