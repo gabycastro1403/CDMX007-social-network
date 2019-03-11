@@ -33,14 +33,18 @@ if ((location.href.match(/registro.html$/gm))) {
     const lastNameUser = lastName.value;
     const specialityUser = speciality.value;
     const genderUser = gender.value;
+   
     const auth = firebase.auth();
     var db = firebase.firestore();
+    
     //console.log (nameUser,lastNameUser);
     auth.createUserWithEmailAndPassword(mailUser, passwordUser);
+    let idUser = {}
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
         if (!location.href.match(/muro.html$/gm)) {
           location.replace('muro.html');
+           idUser = firebaseUser
         }
       } else {
         if (location.href.match(/muro.html$/gm)) {
@@ -48,12 +52,12 @@ if ((location.href.match(/registro.html$/gm))) {
         };
       };
     });
-
     db.collection("users").add({
       first: nameUser,
       last: lastNameUser,
       gender: genderUser,
-      speciality: specialityUser
+      speciality: specialityUser,
+      mail: mailUser
   })
   .then(function(docRef) {
     alert ("registrado");
