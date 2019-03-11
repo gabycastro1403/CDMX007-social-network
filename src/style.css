@@ -23,7 +23,7 @@ body {
 
 #logo {
     width: 60%;
-    height: 30%;
+    height: 40%;
     background-color: white;
     border-radius: 50%;
     border-color: #682c2c;
@@ -59,7 +59,7 @@ h1 {
     width: 50%;
     background-color: #682c2c;
     font-family: 'Nanum Gothic', sans-serif;
-    border: 3px;
+    border: 1px;
     border-style: solid;
     border-color: white;
     color: white;
@@ -85,11 +85,16 @@ h1 {
     width: 70%;
 }
 
-.logotipo {
+.logo-red {
     width: 35%; 
     margin: 0 auto; 
     background-color: white; 
-    margin-top: 5px; 
+    margin-top: 10px; 
+}
+
+
+.icons {
+    width: 5%;
 }
 
 /* Estilos del form de registro */
@@ -123,8 +128,4 @@ h1 {
     color: #5F023A;
     background-color: white;
     border: 0;
-}
-
-.icons {
-    width: 7%;
 }
