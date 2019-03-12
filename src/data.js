@@ -6,21 +6,20 @@ if ((location.href.match(/muro.html$/gm))) {
   perfil.addEventListener('click', () => {
     var db = firebase.firestore();
 
-    const mailStorage = localStorage.getItem('mail');
-    console.log(mailStorage);
-    const printData = (querySnapshot) => {
+    db.collection("users").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        let dataUser = `<div>${doc.data().mail}
-    <p>${doc.data().first}</p>
-    </div>`
-        data.insertAdjacentHTML('beforeend', dataUser);
+        const mailStorage = localStorage.getItem('UID');
+        if (doc.id == mailStorage){ 
+          console.log(doc.data())
+         let dataUser = `<div><p>${doc.data().first}</p>
+          <p>${doc.data().last}</p>
+          <p>${doc.data().speciality}</p>
+          <p>${doc.data().gender}</p>
+          <p><${doc.data().mail}/p></div>`
+          data.insertAdjacentHTML('beforeend',dataUser)
+        }
       });
-    }
-
-    db.collection('users').where('dataUser', '==', mailStorage).get().then((querySnapshot) => {
-      printData(querySnapshot);
-    });
-
+  });
     var user = firebase.auth().currentUser;
     if (user != null) {
       user.providerData.forEach(function (profile) {

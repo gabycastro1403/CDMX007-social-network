@@ -58,6 +58,7 @@ if ((location.href.match(/registro.html$/gm))) {
       })
       .then(function (docRef) {
         alert("registrado");
+        localStorage.setItem('UID',docRef.id);
         console.log('Document written with ID: ', docRef.id);
       })
       .catch(function (error) {
@@ -71,7 +72,6 @@ if ((location.href.match(/registro.html$/gm))) {
 } else if ((location.href.match(/muro.html$/gm))) {
 
   logOut.addEventListener('click', () => {
-    alert('si funciono');
     firebase.auth().signOut();
     location.replace('../index.html');
   });
@@ -88,14 +88,12 @@ if ((location.href.match(/registro.html$/gm))) {
   });
 
   logoGoogle.addEventListener('click', () => {
-    alert('Si funciono');
     const baseProvider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithRedirect(baseProvider)
       .catch(e => console.log(e.message));
   })
 
   logoFacebok.addEventListener('click', () => {
-    alert('holi')
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider).then(function (result) {
       if (result.credential) {
@@ -126,7 +124,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
   } else {
     if (location.href.match(/muro.html$/gm)) {
-      location.replace('../index.html');
+      //location.replace('../index.html');
     }
   }
 })
