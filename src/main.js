@@ -1,11 +1,10 @@
 // window.funciones = (document) => {
  window.controlador = {
-  register: document.getElementById('register'),
  
   firebase: firebase.initializeApp(config),
 
-
   registro: ()=> {
+    const register=  document.getElementById('register'); 
     register.addEventListener('click', () => {
       const mailUser = document.getElementById('mail').value;
       const passwordUser = document.getElementById('password').value;
@@ -152,14 +151,8 @@
           }
         } else {
           if (location.href.match('#/muro')) {
-            //location.replace('../index.html');
           }
         }
-      })
-      
-  },
-  //}
-
- 
+      })  
+  }, 
 };
-// }
