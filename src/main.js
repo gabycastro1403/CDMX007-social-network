@@ -55,7 +55,10 @@
     const perfil = document.getElementById('perfil');
     const data = document.getElementById('data-user');
     const logOut = document.getElementById('log-out');
+    const publication = document.getElementById("publication");
+    const post = document.getElementById("post");
 
+    
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
       location.replace('#/login');
