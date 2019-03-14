@@ -1,11 +1,10 @@
 // window.funciones = (document) => {
  window.controlador = {
-  register: document.getElementById('register'),
  
   firebase: firebase.initializeApp(config),
 
-
   registro: ()=> {
+    const register=  document.getElementById('register'); 
     register.addEventListener('click', () => {
       const mailUser = document.getElementById('mail').value;
       const passwordUser = document.getElementById('password').value;
@@ -56,7 +55,10 @@
     const perfil = document.getElementById('perfil');
     const data = document.getElementById('data-user');
     const logOut = document.getElementById('log-out');
+    const publication = document.getElementById("publication");
+    const post = document.getElementById("post");
 
+    
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
       location.replace('#/login');
@@ -152,14 +154,8 @@
           }
         } else {
           if (location.href.match('#/muro')) {
-            //location.replace('../index.html');
           }
         }
-      })
-      
-  },
-  //}
-
- 
+      })  
+  }, 
 };
-// }
