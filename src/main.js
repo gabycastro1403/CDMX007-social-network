@@ -62,11 +62,24 @@
       const settings = { timestampsInSnapshots: true};
       db.settings(settings);
 
+      var user = firebase.auth().currentUser;
+      if (user != null) {
+        user.providerData.forEach(function (profile) {
+        const photo = profile.photoURL;
+        const name = profile.displayName;
+        
+      localStorage.setItem("photo", photo);
+      localStorage.setItem("name",name);
+        })
+      }
+
     const printAll = () => {
       db.collection("wall").get().then((onSnapshot) => {
         newPost.innerHTML= '';
         onSnapshot.forEach((doc) => {
            let dataWall = `<div>
+            <img src="${doc.data().photoWall}">
+            <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
            </div>`
             newPost.insertAdjacentHTML('beforeend',dataWall)
@@ -82,8 +95,12 @@
 
     post.addEventListener('click', ()=> {
       const publication2 = publication.value;
+      const photoData = localStorage.getItem("photo");
+      const nameData = localStorage.getItem("name");
       db.collection('wall').add({
-         wall: publication2
+        photoWall: photoData,
+        nameWall:nameData,
+        wall: publication2
         })
         .then(function (docRef) {
           alert("publicado");
