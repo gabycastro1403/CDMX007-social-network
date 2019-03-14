@@ -57,13 +57,54 @@
     const logOut = document.getElementById('log-out');
     const publication = document.getElementById("publication");
     const post = document.getElementById("post");
+    const newPost = document.getElementById('new-post')
+    var db = firebase.firestore();
+      const settings = { timestampsInSnapshots: true};
+      db.settings(settings);
 
+    const printAll = () => {
+      db.collection("wall").get().then((onSnapshot) => {
+        newPost.innerHTML= '';
+        onSnapshot.forEach((doc) => {
+           let dataWall = `<div>
+            <p>${doc.data().wall}</p>
+           </div>`
+            newPost.insertAdjacentHTML('beforeend',dataWall)
+          
+        });
+    })};
     
+    printAll();
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
       location.replace('#/login');
     })
-  
+
+    post.addEventListener('click', ()=> {
+      const publication2 = publication.value;
+      db.collection('wall').add({
+         wall: publication2
+        })
+        .then(function (docRef) {
+          alert("publicado");
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(function (error) {
+          alert('no publicado')
+          console.error('Error adding document: ', error);
+        })
+       
+      printAll();
+    // getRealTimeUpdates = function() {
+    //   docRef.onSnapShot({includeMetadataChanges: true},function(doc){
+    //       const myData = doc.data(); 
+    //       newPost.insertAdjacentHTML('beforeend',myData)
+        
+    //   })
+    // }
+    // getRealTimeUpdates(actualPost);
+  })
+
     perfil.addEventListener('click', () => {
       var db = firebase.firestore();
   
