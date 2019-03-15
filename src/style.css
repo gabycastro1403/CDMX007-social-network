@@ -272,6 +272,20 @@ h1 {
     margin: 0 auto; 
 }
 
+#mini-photo {
+    width: 15%;
+    height: 50%;
+    border-radius: 50%; 
+}
+
+#perfil-usuario {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    margin-right: 10%;
+    font-size: 1em; 
+    text-align: right; 
+}
+
 @media screen and (min-width: 1050px) and (max-width: 1300px) {
 #image-wallpaper {
     background-image: url("./images/wallpaper.jpg");
