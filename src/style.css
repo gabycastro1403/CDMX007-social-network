@@ -128,18 +128,18 @@ h1 {
 }
 
 .form-control {
-    color: #5F023A;
+    color: #682c2c;
 }
 
 .form-control::placeholder {
-    color: #5F023A;
+    color: #682c2c;
 }
 
 
 #register {
     margin-left: 15px;
     font-size: 1em;
-    color: #5F023A;
+    color: #682c2c;
     background-color: white;
     border: 0;
 }
@@ -184,6 +184,8 @@ h1 {
    width: 15%;
    height: 50px; 
    border: 0px; 
+   margin-left: 8%;
+   margin-right: 8%;
 }
 
 #perfil {
@@ -195,6 +197,8 @@ h1 {
    width: 15%;
    height: 50px; 
    border: 0px; 
+   margin-right: 8%;
+   margin-left: 8%;
 }
 
 #log-out {
@@ -206,6 +210,8 @@ h1 {
     width: 15%;
     height: 50px; 
     border: 0px; 
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 #user-photo {
@@ -258,6 +264,12 @@ h1 {
     border-color: #682c2c;
     background-color: white; 
     height: 30px; 
+    color: #682c2c;
+}
+
+#nav-icons {
+    width: 80%; 
+    margin: 0 auto; 
 }
 
 @media screen and (min-width: 1050px) and (max-width: 1300px) {
