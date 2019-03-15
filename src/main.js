@@ -74,11 +74,11 @@
       }
 
     const printAll = () => {
-      db.collection("wall").get().then((Snapshot) => {
+      db.collection("wall").get().then((onSnapshot) => {
         newPost.innerHTML= '';
-        Snapshot.forEach((doc) => {
-           let dataWall = `<div>
-            <img src="${doc.data().photoWall}">
+        onSnapshot.forEach((doc) => {
+           let dataWall = `<div id="user-post">
+            <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
            </div>`
