@@ -77,8 +77,8 @@
       db.collection("wall").get().then((onSnapshot) => {
         newPost.innerHTML= '';
         onSnapshot.forEach((doc) => {
-           let dataWall = `<div>
-            <img src="${doc.data().photoWall}">
+           let dataWall = `<div id="user-post">
+            <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
            </div>`
