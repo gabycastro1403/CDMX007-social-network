@@ -37,36 +37,36 @@ window.controlador = {
           console.error('Error adding document: ', error);
         });
 
-        const verificar =() => {
-         firebase.auth().currentUser;
+      //   const verificar =() => {
+      //    firebase.auth().currentUser;
       
-          mailUser.sendEmailVerification().then(function () {
-            console.log("enviando")
-          }).catch(function (error) {
+      //     mailUser.sendEmailVerification().then(function () {
+      //       console.log("enviando")
+      //     }).catch(function (error) {
            
-          });
+      //     });
       
-        };
-
-      auth.createUserWithEmailAndPassword(mailUser, passwordUser)
-        .then(function () {
-          verificar()
-        });
-
-      // firebase.auth().onAuthStateChanged(firebaseUser => {
-      //   if (firebaseUser) {
-      //     if (!location.href.match('#/muro')) {
-      //       location.replace('#/muro');
-
-      //     }
-      //   } else {
-      //     if (location.href.match('#/muro')) {
-      //       location.replace('#/login');
-      //     };
       //   };
-      // });
+
+      // auth.createUserWithEmailAndPassword(mailUser, passwordUser)
+      //   .then(function () {
+      //     verificar()
+      //   });
+
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+         if (firebaseUser) {
+           if (!location.href.match('#/muro')) {
+             location.replace('#/muro');
+
+           }
+         } else {
+           if (location.href.match('#/muro')) {
+             location.replace('#/login');
+           };
+         };
+       });
     })
-  },
+  }, 
 
  
 
