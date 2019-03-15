@@ -150,22 +150,114 @@ h1 {
     position: fixed;
     bottom: 0px;
     margin: 0 auto;
-
+    background-color: white;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-top-width: 2px;
+    border-top-color: #682c2c;
+    border-style: solid;
 }
 
 .menus {
     width: 30%;
     margin: 3px;
-    background-color: #682c2c;
     font-family: 'Nanum Gothic', sans-serif;
     border: 1px;
     border-style: solid;
     border-color: white;
     color: white;
     font-size: 0.8em;
+    background-color: white;
 }
+
 #image-wallpaper {
    display: none;
+}
+
+#time-line {
+   background-image: url("./images/muro.png");
+   background-color: white; 
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 15%;
+   height: 50px; 
+   border: 0px; 
+}
+
+#perfil {
+   background-image: url("./images/perfil2.png");
+   background-color: white; 
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 15%;
+   height: 50px; 
+   border: 0px; 
+}
+
+#log-out {
+    background-image: url("./images/cerrar.png");
+    background-color: white; 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 15%;
+    height: 50px; 
+    border: 0px; 
+}
+
+#user-photo {
+    width: 15%; 
+    border-radius: 50%; 
+}
+
+#user-post {
+    width: 80%; 
+    margin: 0 auto; 
+    border: 2px;
+    border-style: solid;
+    border-color: #682c2c;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    padding-top: 10px; 
+}
+
+#bg-wall {
+    background-color: white; 
+}
+
+#post-area {
+    width: 80%; 
+    background-color: white; 
+    margin: 0 auto; 
+    margin-top: 10px; 
+    padding-top: 10px;
+}
+
+#post {
+    background-color: #682c2c;
+    border: 0px; 
+    color: white;  
+    height: 30px; 
+}
+
+#publication {
+    width: 100%;
+    border: 2px;
+    border-style: solid;
+    border-color: #682c2c;
+}
+
+#post-select {
+    border: 2px;
+    border-style: solid;
+    border-color: #682c2c;
+    background-color: white; 
+    height: 30px; 
 }
 
 @media screen and (min-width: 1050px) and (max-width: 1300px) {
@@ -177,8 +269,8 @@ h1 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
+
 #login{
     float: right;
     width: 40%;
@@ -194,22 +286,4 @@ h1 {
     bottom: 0px;
     text-align: center;
 }
-/* 
-#logo {
-    width: 220px;
-    height: 220px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    position: relative;
-    top: -30%;
-}
-#cont {
-    position: relative;
-    top: -30%;
-    width: 40%;
-    left: 29%;
-} */
-
 }
