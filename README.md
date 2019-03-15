@@ -1,3 +1,10 @@
+## Cuisine Divine
+Cuisine Divine es una red social para estudiantes de Gastronomía, ubicados en la Ciudad de México, que estén interesados en la alta cocina. 
+
+Para conocer el proceso de diseño y pruebas de usuario visita el siguiente link: 
+https://docs.google.com/document/d/1_9Q59hzfISf8It8oZPf3vOPP6TYuqCIUY26qmyv-8uo/edit?usp=sharing
+
+
 # Creando una Red Social
 
 ## Preámbulo

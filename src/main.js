@@ -77,7 +77,9 @@ window.controlador = {
     const logOut = document.getElementById('log-out');
     const publication = document.getElementById("publication");
     const post = document.getElementById("post");
-    const newPost = document.getElementById('new-post')
+    const newPost = document.getElementById('new-post');
+    const perfilUsuario = document.getElementById("perfil-usuario");
+
     var db = firebase.firestore();
       const settings = { timestampsInSnapshots: true};
       db.settings(settings);
@@ -91,8 +93,12 @@ window.controlador = {
       localStorage.setItem("photo", photo);
       localStorage.setItem("name",name);
         })
-      }
+      };
 
+      const photoData = localStorage.getItem("photo");
+      const nameData = localStorage.getItem("name");
+      perfilUsuario.innerHTML= `<img src="${photoData}">${nameData}`
+      
     const printAll = () => {
       db.collection("wall").get().then((onSnapshot) => {
         newPost.innerHTML= '';
