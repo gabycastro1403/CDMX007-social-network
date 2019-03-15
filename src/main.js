@@ -1,4 +1,3 @@
-// window.funciones = (document) => {
  window.controlador = {
  
   firebase: firebase.initializeApp(config),
@@ -25,12 +24,10 @@
           mail: mailUser
         })
         .then(function (docRef) {
-          alert("registrado");
           localStorage.setItem('UID', docRef.id);
           console.log('Document written with ID: ', docRef.id);
         })
         .catch(function (error) {
-          alert('no registrado')
           console.error('Error adding document: ', error);
         })
       
@@ -77,7 +74,7 @@
 
       const photoData = localStorage.getItem("photo");
       const nameData = localStorage.getItem("name");
-      perfilUsuario.innerHTML= `<img src="${photoData}">${nameData}`
+      perfilUsuario.innerHTML= `<img id="mini-photo"src="${photoData}">  ${nameData}`
       
     const printAll = () => {
       db.collection("wall").get().then((onSnapshot) => {
@@ -109,23 +106,13 @@
         wall: publication2
         })
         .then(function (docRef) {
-          alert("publicado");
           console.log('Document written with ID: ', docRef.id);
         })
         .catch(function (error) {
-          alert('no publicado')
           console.error('Error adding document: ', error);
         })
        
       printAll();
-    // getRealTimeUpdates = function() {
-    //   docRef.onSnapShot({includeMetadataChanges: true},function(doc){
-    //       const myData = doc.data(); 
-    //       newPost.insertAdjacentHTML('beforeend',myData)
-        
-    //   })
-    // }
-    // getRealTimeUpdates(actualPost);
   })
 
     perfil.addEventListener('click', () => {
@@ -160,10 +147,6 @@
     })
   },
 
-  //} //else if ((location.pathname.match('index'))) {
-  
-
-    //console.log(location.hash)
   iniciarSesion: () => {
     const login= document.getElementById('button-login');
     const logoGoogle= document.getElementById('logo-google');
@@ -181,7 +164,6 @@
         .then(location.replace('#/muro'))
         .catch(e => alert(e.message));
     })
-  
 
     logoGoogle.addEventListener('click', () => {
       const baseProvider = new firebase.auth.GoogleAuthProvider()
