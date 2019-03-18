@@ -43,6 +43,7 @@
       alert("Todos los campos son obligatorios");
       //location.replace("#/registro");
     }
+    
 
       // if(emailVerified == true){
       //   location.replace('#/muro');
@@ -78,6 +79,18 @@
       const settings = { timestampsInSnapshots: true};
       db.settings(settings);
 
+      db.collection("users").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const mailStorage = localStorage.getItem('UID');
+          if (doc.id == mailStorage){
+            let nameNull =doc.data().first;
+            let lastNull = doc.data().last;
+            localStorage.setItem("lastNull", lastNull);
+           localStorage.setItem("nameNull",nameNull);
+          }
+          });
+        });
+
       var user = firebase.auth().currentUser;
       if (user != null) {
         user.providerData.forEach(function (profile) {
@@ -91,8 +104,14 @@
 
       const photoData = localStorage.getItem("photo");
       const nameData = localStorage.getItem("name");
+      if (photoData == "null" && nameData =='null' ){
+        let localName = localStorage.getItem("nameNull");
+        let localLast = localStorage.getItem("lastNull");
+
+        perfilUsuario.innerHTML= `<img id="mini-photo" src="./images/usuario_chef.jpg"> ${localName} ${localLast}`
+      }else{
       perfilUsuario.innerHTML= `<img id="mini-photo"src="${photoData}">  ${nameData}`
-      
+      }
     const printAll = () => {
       db.collection("wall").get().then((querySnapshot) => {
         newPost.innerHTML= '';
@@ -108,6 +127,8 @@
     })};
     
     printAll();
+    
+
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
       location.replace('#/login');
@@ -115,8 +136,17 @@
 
     post.addEventListener('click', ()=> {
       const publication2 = publication.value;
-      const photoData = localStorage.getItem("photo");
-      const nameData = localStorage.getItem("name");
+      let  photoData = localStorage.getItem("photo");
+      let nameData = localStorage.getItem("name");
+
+     
+
+      if(photoData== 'null' && nameData == "null"){
+        let newName = localStorage.getItem("nameNull");
+        let newLast = localStorage.getItem("lastNull");
+        photoData = ("./images/usuario_chef.jpg");
+        nameData = `${newName} ${newLast}`;
+      }
       db.collection('wall').add({
         photoWall: photoData,
         nameWall:nameData,
