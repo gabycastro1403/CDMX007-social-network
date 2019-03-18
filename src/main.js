@@ -24,20 +24,25 @@
         alert("La contraseña debe de ser igual");
       };
 
-      db.collection('users').add({
-        first: nameUser,
-        last: lastNameUser,
-        gender: genderUser,
-        speciality: specialityUser,
-        mail: mailUser
-      })
-      .then(function (docRef) {
-        localStorage.setItem('UID', docRef.id);
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch(function (error) {
-        console.error('Error adding document: ', error);
-      });
+      if(mailUser!='' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser!='' ){
+        db.collection('users').add({
+          first: nameUser,
+          last: lastNameUser,
+          gender: genderUser,
+          speciality: specialityUser,
+          mail: mailUser
+        })
+        .then(function (docRef) {
+          localStorage.setItem('UID', docRef.id);
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+      }else {
+      alert("Todos los campos son obligatorios");
+      location.replace("#/registro");
+    }
 
       // if(emailVerified == true){
       //   location.replace('#/muro');
