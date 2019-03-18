@@ -11,12 +11,21 @@
       const lastNameUser =  document.getElementById('last-name').value;
       const specialityUser =  document.getElementById('speciality').value;
       const genderUser = document.getElementById('gender').value;
+      const passwordConfirmation = document.getElementById('password-confirmation').value
       const mailId = localStorage.setItem("mail", mailUser);
       const auth = firebase.auth();
       var db = firebase.firestore();
       const settings = { timestampsInSnapshots: true};
       db.settings(settings);
-      db.collection('users').add({
+
+      if (passwordUser === passwordConfirmation){
+      auth.createUserWithEmailAndPassword(mailUser, passwordUser);
+      }else if(passwordUser != passwordConfirmation){
+        alert("La contraseña debe de ser igual");
+      };
+
+      if(mailUser!='' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser!='' ){
+        db.collection('users').add({
           first: nameUser,
           last: lastNameUser,
           gender: genderUser,
@@ -29,9 +38,17 @@
         })
         .catch(function (error) {
           console.error('Error adding document: ', error);
-        })
-      
-      auth.createUserWithEmailAndPassword(mailUser, passwordUser);
+        });
+      }else {
+      alert("Todos los campos son obligatorios");
+      location.replace("#/registro");
+    }
+
+      // if(emailVerified == true){
+      //   location.replace('#/muro');
+      // }else if(emailVerified == false){
+      //   location.replace('#/login');
+      // };
 
       firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
@@ -40,7 +57,7 @@
 
           }
         } else {
-          if (location.href.match('#/muro')) {
+          if (location.href.match('#/login')) {
             location.replace('#/login');
           };
         };
@@ -69,7 +86,7 @@
         
       localStorage.setItem("photo", photo);
       localStorage.setItem("name",name);
-        })
+        });
       };
 
       const photoData = localStorage.getItem("photo");
@@ -144,7 +161,7 @@
           data.insertAdjacentHTML('beforeend', profileUSer);
         });
       }
-    })
+    });
   },
 
   iniciarSesion: () => {
@@ -163,13 +180,13 @@
       promise
         .then(location.replace('#/muro'))
         .catch(e => alert(e.message));
-    })
+    });
 
     logoGoogle.addEventListener('click', () => {
       const baseProvider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithRedirect(baseProvider)
         .catch(e => console.log(e.message));
-    }),
+    });
 
     logoFacebok.addEventListener('click', () => {
       const provider = new firebase.auth.FacebookAuthProvider();
@@ -199,7 +216,7 @@
             location.replace('#/muro');
           }
         } else {
-          if (location.href.match('#/muro')) {
+          if (location.href.match('#/login')) {
           }
         }
       })  
