@@ -24,7 +24,7 @@
         alert("La contraseña debe de ser igual");
       };
 
-      if(mailUser!='' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser!='' ){
+      if(mailUser!='' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser!=''&&passwordUser === passwordConfirmation ){
         db.collection('users').add({
           first: nameUser,
           last: lastNameUser,
@@ -41,7 +41,7 @@
         });
       }else {
       alert("Todos los campos son obligatorios");
-      location.replace("#/registro");
+      //location.replace("#/registro");
     }
 
       // if(emailVerified == true){
@@ -94,9 +94,9 @@
       perfilUsuario.innerHTML= `<img id="mini-photo"src="${photoData}">  ${nameData}`
       
     const printAll = () => {
-      db.collection("wall").get().then((onSnapshot) => {
+      db.collection("wall").get().then((querySnapshot) => {
         newPost.innerHTML= '';
-        onSnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc) => {
            let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
@@ -153,12 +153,16 @@
       if (user != null) {
         user.providerData.forEach(function (profile) {
           data.innerHTML = '';
+          if (profile.photoURL== null){
+          data.innerHTML= `<img src="./images/usuario_chef.jpg">`
+          }else{
           let profileUSer = `<div>
       <img src="${profile.photoURL}">
       <p>${profile.displayName}</p>
       <p>${profile.email}</p>;
       </div>`
           data.insertAdjacentHTML('beforeend', profileUSer);
+          }
         });
       }
     });
