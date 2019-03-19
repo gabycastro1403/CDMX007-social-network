@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-// window.funciones = (document) => {
-window.controlador = {
-
-=======
  window.controlador = {
  
->>>>>>> origin/master
   firebase: firebase.initializeApp(config),
 
   registro: () => {
@@ -58,6 +52,7 @@ window.controlador = {
 
       firebase.auth().onAuthStateChanged(firebaseUser => {
          if (firebaseUser) {
+           console.log(firebaseUser)
            if (!location.href.match('#/muro')) {
              location.replace('#/muro');
 
@@ -173,13 +168,6 @@ window.controlador = {
     })
   },
 
-<<<<<<< HEAD
-  //} //else if ((location.pathname.match('index'))) {
-
-
-  //console.log(location.hash)
-=======
->>>>>>> origin/master
   iniciarSesion: () => {
     const login = document.getElementById('button-login');
     const logoGoogle = document.getElementById('logo-google');
@@ -197,10 +185,6 @@ window.controlador = {
         .then(location.replace('#/muro'))
         .catch(e => alert(e.message));
     })
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
     logoGoogle.addEventListener('click', () => {
         const baseProvider = new firebase.auth.GoogleAuthProvider()
