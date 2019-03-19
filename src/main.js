@@ -171,8 +171,12 @@
       }else{
       perfilUsuario.innerHTML= `<img id="mini-photo"src="${photoData}">  ${nameData}`
       }
+
+      
     const printAll = () => {
-      db.collection("wall").get().then((querySnapshot) => {
+      
+      
+      db.collection("wall").onSnapshot((querySnapshot) => {
         newPost.innerHTML= '';
         querySnapshot.forEach((doc) => {
            let dataWall = `<div id="user-post">
