@@ -26,6 +26,9 @@
        } else if (passwordUser != passwordConfirmation) {
          alert("La contraseña debe de ser igual");
        };
+       
+      
+
 
        if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
          db.collection('users').add({
