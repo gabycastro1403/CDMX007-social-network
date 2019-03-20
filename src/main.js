@@ -180,19 +180,27 @@
         newPost.innerHTML= '';
         
         querySnapshot.forEach((doc) => {
-
+          
           let idPublication = doc.id;
-          console.log(idPublication);
-
            let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
+            <div id ="buttons" class= "hide">
             <button class="delete" id="${idPublication}"> Eliminar </button> 
             <button class="edit" id="${idPublication}"> Editar </button>
+            </div>
            </div>`
-            newPost.insertAdjacentHTML('beforeend',dataWall)
-            
+            newPost.insertAdjacentHTML('beforeend',dataWall);
+
+          let userUID = localStorage.getItem("UID");
+          const buttons = document.getElementById("buttons");
+          if(doc.data().UID === userUID ){
+            buttons.classList.remove("hide");
+          }else{
+            buttons.classList.add("hide");
+          }
+          
           });
           const deletePost = document.getElementsByClassName('delete');
         for (let i=0; i <deletePost.length; i++){
@@ -243,6 +251,8 @@
       const publication2 = publication.value;
       let  photoData = localStorage.getItem("photo");
       let nameData = localStorage.getItem("name");
+      let userUID = localStorage.getItem("UID");
+      console.log("Este es el uid",userUID)
 
      
 
@@ -255,7 +265,8 @@
       db.collection('wall').add({
         photoWall: photoData,
         nameWall:nameData,
-        wall: publication2
+        wall: publication2,
+        UID: userUID
         })
         .then(function (docRef) {
           console.log('Document written with ID: ', docRef.id);
