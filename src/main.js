@@ -194,11 +194,11 @@
             newPost.insertAdjacentHTML('beforeend',dataWall);
 
           let userUID = localStorage.getItem("UID");
+        
           const buttons = document.getElementById("buttons");
           if(doc.data().UID === userUID ){
+            
             buttons.classList.remove("hide");
-          }else{
-            buttons.classList.add("hide");
           }
           
           });
