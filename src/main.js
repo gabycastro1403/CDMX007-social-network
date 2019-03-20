@@ -5,6 +5,7 @@
   registro: ()=> {
     const register=  document.getElementById('register'); 
     
+    
     register.addEventListener('click', () => {
       const mailUser = document.getElementById('mail').value;
       const passwordUser = document.getElementById('password').value;
@@ -47,7 +48,6 @@
       alert("Todos los campos son obligatorios");
       //location.replace("#/registro");
     }
-    
 
     const verify = () =>{
       var user = firebase.auth().currentUser;
@@ -61,7 +61,9 @@
        console.log(error);
       });
     }
-    verify(mailUser);
+        verify(mailUser);
+
+    
 
     db.collection("users").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -75,6 +77,7 @@
         });
       });
     });
+    
   },
 
   iniciarSesion: () => {
@@ -134,8 +137,6 @@
            //  location.hash = '/login';
       }
     })  
-    
-     
   },
  
   cerrarSesion : () => {
@@ -175,21 +176,44 @@
       
     const printAll = () => {
       
-      
       db.collection("wall").onSnapshot((querySnapshot) => {
         newPost.innerHTML= '';
+        
         querySnapshot.forEach((doc) => {
+
+          let idPublication = doc.id;
+          console.log(idPublication);
+
            let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
+            <button class="delete" id="${idPublication}"> Eliminar </button> 
            </div>`
             newPost.insertAdjacentHTML('beforeend',dataWall)
-          
-        });
+            
+          });
+          const deletePost = document.getElementsByClassName('delete');
+        for (let i=0; i <deletePost.length; i++){
+          deletePost[i].addEventListener('click', () =>{
+            const buttonDelete = deletePost[i].id
+            db.collection("wall").doc(buttonDelete).delete().then(function() {
+              console.log("Document successfully deleted!");
+          }).catch(function(error) {
+              console.error("Error removing document: ", error);
+          });
+          })
+
+        }
+
+       
     })};
-    
     printAll();
+
+    
+   
+   
+    
 
     post.addEventListener('click', ()=> {
       const publication2 = publication.value;
