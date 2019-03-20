@@ -189,6 +189,7 @@
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
             <button class="delete" id="${idPublication}"> Eliminar </button> 
+            <button class="edit" id="${idPublication}"> Editar </button>
            </div>`
             newPost.insertAdjacentHTML('beforeend',dataWall)
             
@@ -205,6 +206,29 @@
           })
 
         }
+
+        const editPost = document.getElementsByClassName('edit');
+     for (let i=0; i <editPost.length; i++){
+         editPost[i].addEventListener('click', () =>{
+           console.log("holi");
+           // 1. Obtener los datos del post (id)
+           const buttonEdit = editPost[i].id
+           console.log("buttonEdit", buttonEdit)
+           // 2. Invocar función de Firestore para actualizar el documento y
+           // pasarle de parámetros el id del post
+           const postRef = db.collection("wall").doc(buttonEdit)
+           console.log("postRef: ", postRef)
+           console.log("publication: ", publication.value)
+           postRef.update({
+             wall: publication.value
+           })
+           // 3. Pasar un console.log("Documento actualizado")
+           .then(()=>{
+             console.log("Documento actualizado")
+           })
+         })
+       }
+
 
        
     })};
