@@ -39,7 +39,7 @@
                             if (typeof(destiny.carga)==='function'){
                                 destiny.carga(); 
                             }
-                        }, 500)
+                        }, 2000)
                        
                     }, false); 
                     xhr.open('get', destiny.plantilla, true); 
