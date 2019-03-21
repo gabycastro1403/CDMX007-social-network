@@ -14,10 +14,6 @@ body {
     top: -15%; 
 }
 
-.hide{
-    display:none;
-}
-
 
 #login {
     margin: 0 auto;
@@ -291,6 +287,29 @@ h1 {
     margin-right: 10%;
     font-size: 1em; 
     text-align: right; 
+}
+
+/*Estilos botones post*/
+
+.delete{
+  background-image: url(./images/delete.png);
+  background-position: center;
+  background-size:cover;
+  background-color: white;
+  border: 0px;
+  width: 40px;
+  height:40px;
+
+}
+
+.edit{
+    background-image: url(./images/edit.png);
+    background-position: center;
+    background-size:cover;
+    background-color: white;
+    border: 0px;
+    width: 40px;
+    height:40px;
 }
 
 @media screen and (min-width: 1050px) and (max-width: 1300px) {

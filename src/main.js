@@ -202,8 +202,8 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button class="delete" id="${idPublication}"> Eliminar </button> 
-            <button class="edit" id="${idPublication}"> Editar </button>
+            <button class="delete" id="${idPublication}"></button> 
+            <button class="edit" id="${idPublication}"></button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            } else {
