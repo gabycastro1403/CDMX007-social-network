@@ -200,7 +200,6 @@
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
             <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
-
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            } else {
@@ -208,10 +207,10 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}">Like</button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
-           }
+           };
          });
          const deletePost = document.getElementsByClassName('delete');
          for (let i = 0; i < deletePost.length; i++) {
@@ -222,8 +221,8 @@
              }).catch(function (error) {
                console.error("Error removing document: ", error);
              });
-           })
-         }
+           });
+         };
 
          const edit = document.getElementsByClassName('edit');
          for (let i= 0; i<edit.length; i++){
@@ -243,41 +242,28 @@
                  console.log("Documento actualizado");
                  save.innerHTML='';
                  document.getElementById('txt-'+ id).disabled = true;
-
-               })
-
-            })
-          })
-
+               });
+            });
+          });
          }
          
          const buttonLike= document.getElementsByClassName("like");
          for(let i=0; i<buttonLike.length; i++){
            buttonLike[i].addEventListener("click", (e)=>{
-
              let idLike = buttonLike[i].id;
-             let getLike = parseInt(e.target.dataset.like);
+             let getLike = parseInt(e.target.dataset.like)
              getLike++;
-             console.log(getLike);
-
-
+             
              const postRef = db.collection("wall").doc(idLike)
               postRef.update({
                  like: getLike
                })
                .then(() => {
                  console.log("Documento actualizado");
-                
-               })
-
-           })
-         }
-
-
-
-
-
-       })
+               });
+           });
+         };
+       });
      };
      printAll();
 
@@ -286,9 +272,7 @@
        let photoData = localStorage.getItem("photo");
        let nameData = localStorage.getItem("name");
        let userUID = localStorage.getItem("UID");
-       console.log("Este es el uid", userUID)
-
-
+       console.log("Este es el uid", userUID);
 
        let usuario = JSON.parse(localStorage.getItem('usuario'));
        if (photoData == 'null' && nameData == "null") {
@@ -296,7 +280,7 @@
          let newLast = localStorage.getItem("lastNull");
          photoData = ("./images/usuario_chef.jpg");
          nameData = `${newName} ${newLast}`;
-       }
+       };
        db.collection('wall').add({
            photoWall: photoData,
            nameWall: nameData,
@@ -314,7 +298,7 @@
          })
 
        printAll();
-     })
+     });
 
      perfil.addEventListener('click', () => {
        var db = firebase.firestore();
@@ -330,7 +314,7 @@
             <p>${doc.data().gender}</p>
             <p><${doc.data().mail}/p></div>`
              data.insertAdjacentHTML('beforeend', dataUser)
-           }
+           };
          });
        });
        var user = firebase.auth().currentUser;
@@ -346,9 +330,9 @@
       <p>${profile.email}</p>;
       </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
-           }
+           };
          });
-       }
+       };
      });
 
      logOut.addEventListener('click', () => {
@@ -356,11 +340,6 @@
        firebase.auth().signOut();
        console.log("Usuario fuera");
        location.hash = '/login';
-     })
-
-
+     });
    },
-
-
-
  }
