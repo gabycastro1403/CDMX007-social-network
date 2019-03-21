@@ -208,7 +208,7 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}">Like</button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
