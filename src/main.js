@@ -61,9 +61,9 @@
          }).catch(function (error) {
            // An error happened.
            console.log(error);
-         });
+          });
        }
-       verify(mailUser);
+        verify(mailUser);
 
 
 
@@ -212,19 +212,22 @@
 
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
-           }
+           };
          });
          const deletePost = document.getElementsByClassName('delete');
          for (let i = 0; i < deletePost.length; i++) {
            deletePost[i].addEventListener('click', () => {
              const buttonDelete = deletePost[i].id
+             const confirmation = confirm ("Estas apunto de borrar una publicación ¿Deseas continuar?");
+             if(confirmation == true){
              db.collection("wall").doc(buttonDelete).delete().then(function () {
                console.log("Document successfully deleted!");
              }).catch(function (error) {
                console.error("Error removing document: ", error);
              });
-           })
-         }
+            }
+           });
+         };
 
          const edit = document.getElementsByClassName('edit');
          for (let i= 0; i<edit.length; i++){
@@ -236,6 +239,7 @@
 
             save.addEventListener('click', ()=> {
               const newValue = document.getElementById('txt-'+id).value;
+              if(newValue != ''){
               const postRef = db.collection("wall").doc(id)
               postRef.update({
                  wall: newValue
@@ -244,12 +248,12 @@
                  console.log("Documento actualizado");
                  save.innerHTML='';
                  document.getElementById('txt-'+ id).disabled = true;
-
-               })
-
-            })
-          })
-
+               });
+              }else {
+                alert('Debes de escribir algo')
+              }
+            });
+          });
          }
          
          const buttonLike= document.getElementsByClassName("like");
@@ -268,33 +272,19 @@
                })
                .then(() => {
                  console.log("Documento actualizado");
-                
-               })
-
-           })
-         }
-
-
-
-
-
-       })
+               });
+           });
+         };
+       });
      };
      printAll();
-
-
-
-
-
 
      post.addEventListener('click', () => {
        const publication2 = publication.value;
        let photoData = localStorage.getItem("photo");
        let nameData = localStorage.getItem("name");
        let userUID = localStorage.getItem("UID");
-       console.log("Este es el uid", userUID)
-
-
+       publication.value='';
 
        let usuario = JSON.parse(localStorage.getItem('usuario'));
        if (photoData == 'null' && nameData == "null") {
@@ -302,7 +292,10 @@
          let newLast = localStorage.getItem("lastNull");
          photoData = ("./images/usuario_chef.jpg");
          nameData = `${newName} ${newLast}`;
-       }
+       };
+       if (publication2 == ''){
+         alert("No hay nada que publicar")
+       }else{
        db.collection('wall').add({
            photoWall: photoData,
            nameWall: nameData,
@@ -314,13 +307,18 @@
          })
          .then(function (docRef) {
            console.log('Document written with ID: ', docRef.id);
+           
          })
          .catch(function (error) {
            console.error('Error adding document: ', error);
          })
 
+
        printAll();
-     })
+       
+        }
+        
+     });
 
      perfil.addEventListener('click', () => {
        var db = firebase.firestore();
@@ -336,7 +334,7 @@
             <p>${doc.data().gender}</p>
             <p><${doc.data().mail}/p></div>`
              data.insertAdjacentHTML('beforeend', dataUser)
-           }
+           };
          });
        });
        var user = firebase.auth().currentUser;
@@ -352,9 +350,9 @@
       <p>${profile.email}</p>;
       </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
-           }
+           };
          });
-       }
+       };
      });
 
      logOut.addEventListener('click', () => {
@@ -362,11 +360,6 @@
        firebase.auth().signOut();
        console.log("Usuario fuera");
        location.hash = '/login';
-     })
-
-
+     });
    },
-
-
-
  }
