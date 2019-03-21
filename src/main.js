@@ -180,28 +180,21 @@
      }
 
 
+
+
      const printAll = () => {
 
-       db.collection("wall").onSnapshot((querySnapshot) => {
+       db.collection("wall").orderBy('date','desc').onSnapshot((querySnapshot) => {
          newPost.innerHTML = '';
-
          querySnapshot.forEach((doc) => {
-
            let idPublication = doc.id;
-          //  let dataWall = `<div id="user-post">
-          //   <img id="user-photo" src="${doc.data().photoWall}">
-          //   <p>${doc.data().nameWall}</p>
-          //   <p>${doc.data().wall}</p>
-          //  </div>`
-          //  newPost.insertAdjacentHTML('beforeend', dataWall);
-
            let userUID = JSON.parse(localStorage.getItem("usuario"));
            // const buttons = document.getElementById("buttons");
            if (doc.data().idUsusario === userUID.uid) {
             let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
-            <p>${doc.data().wall}</p>
+            <textarea disabled = "true" >${doc.data().wall}</textarea>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
            </div>`
@@ -215,7 +208,6 @@
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
          });
-
          const deletePost = document.getElementsByClassName('delete');
          for (let i = 0; i < deletePost.length; i++) {
            deletePost[i].addEventListener('click', () => {
@@ -226,7 +218,6 @@
                console.error("Error removing document: ", error);
              });
            })
-
          }
 
          const editPost = document.getElementsByClassName('edit');
@@ -250,6 +241,7 @@
                })
            })
          }
+
 
 
 
@@ -283,7 +275,8 @@
            nameWall: nameData,
            wall: publication2,
            UID: userUID,
-           idUsusario: usuario.uid
+           idUsusario: usuario.uid,
+           date:firebase.firestore.FieldValue.serverTimestamp(),
          })
          .then(function (docRef) {
            console.log('Document written with ID: ', docRef.id);
