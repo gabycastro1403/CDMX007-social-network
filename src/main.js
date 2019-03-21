@@ -61,9 +61,9 @@
          }).catch(function (error) {
            // An error happened.
            console.log(error);
-         });
+          });
        }
-       verify(mailUser);
+        verify(mailUser);
 
 
 
@@ -218,11 +218,14 @@
          for (let i = 0; i < deletePost.length; i++) {
            deletePost[i].addEventListener('click', () => {
              const buttonDelete = deletePost[i].id
+             const confirmation = confirm ("Estas apunto de borrar una publicación ¿Deseas continuar?");
+             if(confirmation == true){
              db.collection("wall").doc(buttonDelete).delete().then(function () {
                console.log("Document successfully deleted!");
              }).catch(function (error) {
                console.error("Error removing document: ", error);
              });
+            }
            });
          };
 
@@ -236,6 +239,7 @@
 
             save.addEventListener('click', ()=> {
               const newValue = document.getElementById('txt-'+id).value;
+              if(newValue != ''){
               const postRef = db.collection("wall").doc(id)
               postRef.update({
                  wall: newValue
@@ -245,6 +249,9 @@
                  save.innerHTML='';
                  document.getElementById('txt-'+ id).disabled = true;
                });
+              }else {
+                alert('Debes de escribir algo')
+              }
             });
           });
          }
@@ -277,7 +284,7 @@
        let photoData = localStorage.getItem("photo");
        let nameData = localStorage.getItem("name");
        let userUID = localStorage.getItem("UID");
-       console.log("Este es el uid", userUID);
+       publication.value='';
 
        let usuario = JSON.parse(localStorage.getItem('usuario'));
        if (photoData == 'null' && nameData == "null") {
@@ -286,6 +293,9 @@
          photoData = ("./images/usuario_chef.jpg");
          nameData = `${newName} ${newLast}`;
        };
+       if (publication2 == ''){
+         alert("No hay nada que publicar")
+       }else{
        db.collection('wall').add({
            photoWall: photoData,
            nameWall: nameData,
@@ -297,12 +307,17 @@
          })
          .then(function (docRef) {
            console.log('Document written with ID: ', docRef.id);
+           
          })
          .catch(function (error) {
            console.error('Error adding document: ', error);
          })
 
+
        printAll();
+       
+        }
+        
      });
 
      perfil.addEventListener('click', () => {
