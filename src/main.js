@@ -186,20 +186,19 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <div id ="buttons" class= "hide">
+           </div>`
+           newPost.insertAdjacentHTML('beforeend',dataWall);
+           let userUID = localStorage.getItem("UID");
+            if(doc.data().UID === userUID ){
+              let buttons = 
+              `<div id ="buttons" class= "hide">
             <button class="delete" id="${idPublication}"> Eliminar </button> 
             <button class="edit" id="${idPublication}"> Editar </button>
-            </div>
-           </div>`
-            newPost.insertAdjacentHTML('beforeend',dataWall);
-
-          let userUID = localStorage.getItem("UID");
-          const buttons = document.getElementById("buttons");
-          if(doc.data().UID === userUID ){
-            buttons.classList.remove("hide");
-          }else{
-            buttons.classList.add("hide");
-          }
+            </div>`
+            newPost.insertAdjacentHTML('beforeend', buttons)
+              // buttons.classList.remove("hide");
+            }
+            
           
           });
           const deletePost = document.getElementsByClassName('delete');
