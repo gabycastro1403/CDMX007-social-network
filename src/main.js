@@ -188,7 +188,7 @@
          newPost.innerHTML = '';
          querySnapshot.forEach((doc) => {
            let idPublication = doc.id;
-           console.log(idPublication);
+          //  console.log(idPublication);
            let userUID = JSON.parse(localStorage.getItem("usuario"));
            // const buttons = document.getElementById("buttons");
            if (doc.data().idUsusario === userUID.uid) {
@@ -199,7 +199,7 @@
             <p id="save-${idPublication}"> </p>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
 
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
@@ -208,7 +208,8 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
+
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
@@ -254,10 +255,10 @@
          const buttonLike= document.getElementsByClassName("like");
          for(let i=0; i<buttonLike.length; i++){
            buttonLike[i].addEventListener("click", (e)=>{
-
+             
              let idLike = buttonLike[i].id;
-             let getLike = parseInt(e.target.dataset.like);
-             getLike++;
+             let getLike = e.target.dataset.like;
+             getLike ++;
              console.log(getLike);
 
 
@@ -308,8 +309,8 @@
            wall: publication2,
            UID: userUID,
            idUsusario: usuario.uid,
-           like:0,
-           date:firebase.firestore.FieldValue.serverTimestamp(),
+           like: 0,
+           date: firebase.firestore.FieldValue.serverTimestamp(),
          })
          .then(function (docRef) {
            console.log('Document written with ID: ', docRef.id);
