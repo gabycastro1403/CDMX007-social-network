@@ -47,7 +47,7 @@
              console.error('Error adding document: ', error);
            });
        } else {
-         alert("Todos los campos son obligatorios");
+        //  alert("Todos los campos son obligatorios");
          //location.replace("#/registro");
        }
 
