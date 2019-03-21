@@ -199,6 +199,8 @@
             <p id="save-${idPublication}"> </p>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
+
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            } else {
@@ -206,6 +208,7 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}">Like</button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
@@ -248,22 +251,28 @@
 
          }
          
+         const buttonLike= document.getElementsByClassName("like");
+         for(let i=0; i<buttonLike.length; i++){
+           buttonLike[i].addEventListener("click", (e)=>{
 
-        //  const edit = document.getElementsByClassName('edit');
-        //  for (let i = 0; i < edit.length; i++) {
-        //    edit[i].addEventListener('click', () => {
-        //      const buttonEdit = editPost[i].id
-        //     //  const postRef = db.collection("wall").doc(buttonEdit)
-             
-        //     //  postRef.update({
-        //     //      wall: publication.value
-        //     //    })
-        //     //    // 3. Pasar un console.log("Documento actualizado")
-        //     //    .then(() => {
-        //     //      console.log("Documento actualizado")
-        //     //    })
-        //    })
-        //  }
+             let idLike = buttonLike[i].id;
+             let getLike = parseInt(e.target.dataset.like);
+             getLike++;
+             console.log(getLike);
+
+
+             const postRef = db.collection("wall").doc(idLike)
+              postRef.update({
+                 like: getLike
+               })
+               .then(() => {
+                 console.log("Documento actualizado");
+                
+               })
+
+           })
+         }
+
 
 
 
@@ -299,6 +308,7 @@
            wall: publication2,
            UID: userUID,
            idUsusario: usuario.uid,
+           like:0,
            date:firebase.firestore.FieldValue.serverTimestamp(),
          })
          .then(function (docRef) {
