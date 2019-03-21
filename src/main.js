@@ -248,34 +248,9 @@
 
          }
          
-
-        //  const edit = document.getElementsByClassName('edit');
-        //  for (let i = 0; i < edit.length; i++) {
-        //    edit[i].addEventListener('click', () => {
-        //      const buttonEdit = editPost[i].id
-        //     //  const postRef = db.collection("wall").doc(buttonEdit)
-             
-        //     //  postRef.update({
-        //     //      wall: publication.value
-        //     //    })
-        //     //    // 3. Pasar un console.log("Documento actualizado")
-        //     //    .then(() => {
-        //     //      console.log("Documento actualizado")
-        //     //    })
-        //    })
-        //  }
-
-
-
-
        })
      };
      printAll();
-
-
-
-
-
 
      post.addEventListener('click', () => {
        const publication2 = publication.value;
