@@ -387,9 +387,9 @@ Otras:
 
 ### `README.md`
 
-* [ ] Definición del producto
-* [ ] Resumen de entrevistas con usuarios.
-* [ ] Link/screenshots prototipo de baja fidelidad.
+* [x] Definición del producto
+* [x] Resumen de entrevistas con usuarios.
+* [x] Link/screenshots prototipo de baja fidelidad.
 * [ ] Conclusiones de pruebas con el producto en HTML.
 
 ### Pruebas / tests
@@ -400,25 +400,25 @@ Otras:
 
 ### Creación de cuenta (sign up)
 
-* [ ] Permite crear cuenta.
-* [ ] Valida email.
-* [ ] Valida password.
-* [ ] Muestra mensajes de error.
+* [x] Permite crear cuenta.
+* [x] Valida email.
+* [x] Valida password.
+* [x] Muestra mensajes de error.
 
 ### Inicio de sesión (sign in)
 
-* [ ] Permite iniciar sesión.
-* [ ] Valida email.
-* [ ] Valida password.
+* [x] Permite iniciar sesión.
+* [x] Valida email.
+* [x] Valida password.
 * [ ] Muestra mensajes de error.
 
 ### Muro (wall/feed)
 
-* [ ] Muestra _muro_, o lista de publicaciones.
-* [ ] Permite hacer nuevas publicaciones.
-* [ ] Permite eliminar publicaciones.
+* [x] Muestra _muro_, o lista de publicaciones.
+* [x] Permite hacer nuevas publicaciones.
+* [x] Permite eliminar publicaciones.
 * [ ] Pide confirmación antes de borrar publicación.
-* [ ] Permite editar publicación en el mismo lugar (in place).
+* [x] Permite editar publicación en el mismo lugar (in place).
 * [ ] Permite filtrar publicaciones por público/privado.
 * [ ] Permite marcar publicaciones como _gustados_ (like, corazón, estrella,
   etc...).
