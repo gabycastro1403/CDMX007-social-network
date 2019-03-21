@@ -188,13 +188,15 @@
          newPost.innerHTML = '';
          querySnapshot.forEach((doc) => {
            let idPublication = doc.id;
+           console.log(idPublication);
            let userUID = JSON.parse(localStorage.getItem("usuario"));
            // const buttons = document.getElementById("buttons");
            if (doc.data().idUsusario === userUID.uid) {
             let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
-            <textarea disabled = "true" >${doc.data().wall}</textarea>
+            <textarea id="txt-${idPublication}"class ="post-editado" disabled = "true" >${doc.data().wall}</textarea>
+            <p id="save-${idPublication}"> </p>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
            </div>`
@@ -220,27 +222,48 @@
            })
          }
 
-         const editPost = document.getElementsByClassName('edit');
-         for (let i = 0; i < editPost.length; i++) {
-           editPost[i].addEventListener('click', () => {
-             console.log("holi");
-             // 1. Obtener los datos del post (id)
-             const buttonEdit = editPost[i].id
-             console.log("buttonEdit", buttonEdit)
-             // 2. Invocar función de Firestore para actualizar el documento y
-             // pasarle de parámetros el id del post
-             const postRef = db.collection("wall").doc(buttonEdit)
-             console.log("postRef: ", postRef)
-             console.log("publication: ", publication.value)
-             postRef.update({
-                 wall: publication.value
+         const edit = document.getElementsByClassName('edit');
+         for (let i= 0; i<edit.length; i++){
+           const id = edit[i].id;
+           edit[i].addEventListener("click", () => {
+            document.getElementById('txt-'+ id).disabled = false;
+            const save = document.getElementById('save-'+id);
+            save.innerHTML=`<button id='save-button'>Guardar</button>`;
+
+            save.addEventListener('click', ()=> {
+              const newValue = document.getElementById('txt-'+id).value;
+              const postRef = db.collection("wall").doc(id)
+              postRef.update({
+                 wall: newValue
                })
-               // 3. Pasar un console.log("Documento actualizado")
                .then(() => {
-                 console.log("Documento actualizado")
+                 console.log("Documento actualizado");
+                 save.innerHTML='';
+                 document.getElementById('txt-'+ id).disabled = true;
+
                })
-           })
+
+            })
+          })
+
          }
+         
+
+        //  const edit = document.getElementsByClassName('edit');
+        //  for (let i = 0; i < edit.length; i++) {
+        //    edit[i].addEventListener('click', () => {
+        //      const buttonEdit = editPost[i].id
+        //     //  const postRef = db.collection("wall").doc(buttonEdit)
+             
+        //     //  postRef.update({
+        //     //      wall: publication.value
+        //     //    })
+        //     //    // 3. Pasar un console.log("Documento actualizado")
+        //     //    .then(() => {
+        //     //      console.log("Documento actualizado")
+        //     //    })
+        //    })
+        //  }
 
 
 
