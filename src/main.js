@@ -47,7 +47,7 @@
              console.error('Error adding document: ', error);
            });
        } else {
-        //  alert("Todos los campos son obligatorios");
+         alert("Todos los campos son obligatorios");
          //location.replace("#/registro");
        }
 
@@ -61,9 +61,10 @@
          }).catch(function (error) {
            // An error happened.
            console.log(error);
-          });
+    
+         });
        }
-        verify(mailUser);
+       verify(mailUser);
 
 
 
@@ -95,7 +96,15 @@
        const mailUser = mailLogin.value;
        const passwordUser = passLogin.value;
        const auth = firebase.auth();
-       auth.signInWithEmailAndPassword(mailUser, passwordUser);
+       auth.signInWithEmailAndPassword(mailUser, passwordUser)
+       .catch(function(error) {
+        
+       
+        var errorMessage = error.message;
+        // ...
+        
+        alert(errorMessage)
+      });
 
      });
 
@@ -136,7 +145,9 @@
          location.hash = '/muro';
        } else {
          console.log('no hay usuario')
+         
          //location.hash = '/login';
+         
        }
      })
    },
@@ -188,7 +199,7 @@
          newPost.innerHTML = '';
          querySnapshot.forEach((doc) => {
            let idPublication = doc.id;
-          //  console.log(idPublication);
+           console.log(idPublication);
            let userUID = JSON.parse(localStorage.getItem("usuario"));
            // const buttons = document.getElementById("buttons");
            if (doc.data().idUsusario === userUID.uid) {
@@ -199,7 +210,7 @@
             <p id="save-${idPublication}"> </p>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
 
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
@@ -208,26 +219,22 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
-
+            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
-           };
+           }
          });
          const deletePost = document.getElementsByClassName('delete');
          for (let i = 0; i < deletePost.length; i++) {
            deletePost[i].addEventListener('click', () => {
              const buttonDelete = deletePost[i].id
-             const confirmation = confirm ("Estas apunto de borrar una publicación ¿Deseas continuar?");
-             if(confirmation == true){
              db.collection("wall").doc(buttonDelete).delete().then(function () {
                console.log("Document successfully deleted!");
              }).catch(function (error) {
                console.error("Error removing document: ", error);
              });
-            }
-           });
-         };
+           })
+         }
 
          const edit = document.getElementsByClassName('edit');
          for (let i= 0; i<edit.length; i++){
@@ -239,7 +246,6 @@
 
             save.addEventListener('click', ()=> {
               const newValue = document.getElementById('txt-'+id).value;
-              if(newValue != ''){
               const postRef = db.collection("wall").doc(id)
               postRef.update({
                  wall: newValue
@@ -248,21 +254,21 @@
                  console.log("Documento actualizado");
                  save.innerHTML='';
                  document.getElementById('txt-'+ id).disabled = true;
-               });
-              }else {
-                alert('Debes de escribir algo')
-              }
-            });
-          });
+
+               })
+
+            })
+          })
+
          }
          
          const buttonLike= document.getElementsByClassName("like");
          for(let i=0; i<buttonLike.length; i++){
            buttonLike[i].addEventListener("click", (e)=>{
-             
+
              let idLike = buttonLike[i].id;
-             let getLike = e.target.dataset.like;
-             getLike ++;
+             let getLike = parseInt(e.target.dataset.like);
+             getLike++;
              console.log(getLike);
 
 
@@ -272,19 +278,33 @@
                })
                .then(() => {
                  console.log("Documento actualizado");
-               });
-           });
-         };
-       });
+                
+               })
+
+           })
+         }
+
+
+
+
+
+       })
      };
      printAll();
+
+
+
+
+
 
      post.addEventListener('click', () => {
        const publication2 = publication.value;
        let photoData = localStorage.getItem("photo");
        let nameData = localStorage.getItem("name");
        let userUID = localStorage.getItem("UID");
-       publication.value='';
+       console.log("Este es el uid", userUID)
+
+
 
        let usuario = JSON.parse(localStorage.getItem('usuario'));
        if (photoData == 'null' && nameData == "null") {
@@ -292,33 +312,25 @@
          let newLast = localStorage.getItem("lastNull");
          photoData = ("./images/usuario_chef.jpg");
          nameData = `${newName} ${newLast}`;
-       };
-       if (publication2 == ''){
-         alert("No hay nada que publicar")
-       }else{
+       }
        db.collection('wall').add({
            photoWall: photoData,
            nameWall: nameData,
            wall: publication2,
            UID: userUID,
            idUsusario: usuario.uid,
-           like: 0,
-           date: firebase.firestore.FieldValue.serverTimestamp(),
+           like:0,
+           date:firebase.firestore.FieldValue.serverTimestamp(),
          })
          .then(function (docRef) {
            console.log('Document written with ID: ', docRef.id);
-           
          })
          .catch(function (error) {
            console.error('Error adding document: ', error);
          })
 
-
        printAll();
-       
-        }
-        
-     });
+     })
 
      perfil.addEventListener('click', () => {
        var db = firebase.firestore();
@@ -334,7 +346,7 @@
             <p>${doc.data().gender}</p>
             <p><${doc.data().mail}/p></div>`
              data.insertAdjacentHTML('beforeend', dataUser)
-           };
+           }
          });
        });
        var user = firebase.auth().currentUser;
@@ -350,9 +362,9 @@
       <p>${profile.email}</p>;
       </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
-           };
+           }
          });
-       };
+       }
      });
 
      logOut.addEventListener('click', () => {
@@ -360,6 +372,11 @@
        firebase.auth().signOut();
        console.log("Usuario fuera");
        location.hash = '/login';
-     });
+     })
+
+
    },
+
+
+
  }
