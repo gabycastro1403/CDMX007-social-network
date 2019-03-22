@@ -148,12 +148,21 @@
      const publication = document.getElementById("publication");
      const post = document.getElementById("post");
      const newPost = document.getElementById('new-post');
+     const timeLine = document.getElementById('time-line');
      const perfilUsuario = document.getElementById("perfil-usuario");
+     const postUser = document.getElementById('post-user');
+
      var db = firebase.firestore();
      const settings = {
        timestampsInSnapshots: true
      };
      db.settings(settings);
+
+     timeLine.addEventListener('click', () => {
+      data.innerHTML= '';
+      postUser.innerHTML='';
+      printAll();
+     });
 
      var user = firebase.auth().currentUser;
      if (user != null) {
@@ -188,9 +197,7 @@
          newPost.innerHTML = '';
          querySnapshot.forEach((doc) => {
            let idPublication = doc.id;
-          //  console.log(idPublication);
            let userUID = JSON.parse(localStorage.getItem("usuario"));
-           // const buttons = document.getElementById("buttons");
            if (doc.data().idUsusario === userUID.uid) {
             let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
@@ -277,7 +284,11 @@
          };
        });
      };
+
+     
      printAll();
+
+     
 
      post.addEventListener('click', () => {
        const publication2 = publication.value;
@@ -339,8 +350,9 @@
        });
        var user = firebase.auth().currentUser;
        if (user != null) {
+        data.innerHTML='';
          user.providerData.forEach(function (profile) {
-           data.innerHTML = '';
+           postUser.innerHTML = '';
            if (profile.photoURL == null) {
              data.innerHTML = `<img src="./images/usuario_chef.jpg">`
            } else {
@@ -350,9 +362,24 @@
       <p>${profile.email}</p>;
       </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
+             
            };
          });
        };
+       db.collection("wall").orderBy('date','desc').onSnapshot((querySnapshot) => {
+        postUser.innerHTML= '';
+        querySnapshot.forEach((doc) => {
+          let idPublication = doc.id;
+          let userUID = JSON.parse(localStorage.getItem("usuario"));
+          if (doc.data().idUsusario === userUID.uid) {
+           let dataWall = `<div id="user-post">
+           <img id="user-photo" src="${doc.data().photoWall}">
+           <p>${doc.data().nameWall}</p>
+           <textarea id="txt-${idPublication}"class ="post-editado" disabled = "true" >${doc.data().wall}</textarea>`
+           postUser.insertAdjacentHTML('beforeend', dataWall)
+          }
+        })
+      })
      });
 
      logOut.addEventListener('click', () => {
