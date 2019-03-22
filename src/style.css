@@ -325,12 +325,12 @@ h1 {
     border: 0px;
     width: 40px;
     height:40px;
-    color:
+    
 }
 
 .like:hover {
     background-image: url(./images/like2.png);
-    color: white; 
+    color: white;
 }
 
 
