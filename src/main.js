@@ -213,12 +213,13 @@
             let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
-            <textarea id="txt-${idPublication}"class ="post-editado" disabled = "true" >${doc.data().wall}</textarea>
+            <textarea id="txt-${idPublication}" class ="post-editado" disabled = "true">${doc.data().wall}</textarea>
             <p id="save-${idPublication}"> </p>
+            <div class="buttons-content">  
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
             <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
-
+            </div>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            } else {
@@ -226,7 +227,9 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
+            <div class="buttons-content"> 
             <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
+            </div>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
