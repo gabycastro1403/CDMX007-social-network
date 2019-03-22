@@ -401,7 +401,7 @@ Otras:
 ### Creación de cuenta (sign up)
 
 * [x] Permite crear cuenta.
-* [x] Valida email.
+* [ ] Valida email.
 * [x] Valida password.
 * [x] Muestra mensajes de error.
 
@@ -417,12 +417,12 @@ Otras:
 * [x] Muestra _muro_, o lista de publicaciones.
 * [x] Permite hacer nuevas publicaciones.
 * [x] Permite eliminar publicaciones.
-* [ ] Pide confirmación antes de borrar publicación.
+* [x] Pide confirmación antes de borrar publicación.
 * [x] Permite editar publicación en el mismo lugar (in place).
 * [ ] Permite filtrar publicaciones por público/privado.
-* [ ] Permite marcar publicaciones como _gustados_ (like, corazón, estrella,
+* [x] Permite marcar publicaciones como _gustados_ (like, corazón, estrella,
   etc...).
-* [ ] Permite ver cuántas marcas, likes, estrellas, corazones o lo que se haya
+* [x] Permite ver cuántas marcas, likes, estrellas, corazones o lo que se haya
   elegido, ha recibido una publicación.
 
 ### Hacker Edition
