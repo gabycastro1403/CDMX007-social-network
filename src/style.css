@@ -296,6 +296,12 @@ h1 {
 
 /*Estilos botones post*/
 
+.buttons-content{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
 .delete{
   background-image: url(./images/delete.png);
   background-position: center;
@@ -304,7 +310,9 @@ h1 {
   border: 0px;
   width: 40px;
   height:40px;
-
+  position: absolute; 
+  bottom: 10px;
+  left: 100px; 
 }
 
 .edit{
@@ -315,6 +323,9 @@ h1 {
     border: 0px;
     width: 40px;
     height:40px;
+    position: absolute; 
+    bottom: 10px;
+    left: 50px; 
 }
 
 .like {
@@ -325,7 +336,9 @@ h1 {
     border: 0px;
     width: 40px;
     height:40px;
-    
+    position: absolute; 
+    bottom: 10px;
+    left: 0px; 
 }
 
 .like:hover {
@@ -333,9 +346,22 @@ h1 {
     color: white;
 }
 
+/* Estilos del text area */
+.post-editado{
+    width: 100%; 
+}
 
+.post-editado:read-write{
+    border: 5px; 
+    background-color: white;
+}
 
-@media screen and (min-width: 1050px) and (max-width: 1300px) {
+.post-editado:focus {
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 0, 0, 0.6);
+    outline: 0 none;
+}
+
+@media screen and (min-width: 1050px){
 #image-wallpaper {
     background-image: url("./images/wallpaper.jpg");
     width: 60%;
