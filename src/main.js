@@ -217,7 +217,7 @@
             <p id="save-${idPublication}"> </p>
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
 
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
@@ -226,7 +226,7 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
-            <button data-like=${doc.data().like} class="like" id="${idPublication}"><p id="like-counter">${doc.data().like}</p></button>
+            <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
@@ -235,11 +235,14 @@
          for (let i = 0; i < deletePost.length; i++) {
            deletePost[i].addEventListener('click', () => {
              const buttonDelete = deletePost[i].id
+             const confirmation = confirm("¿Estas seguro que quieres borrar este post?");
+             if (confirmation == true){
              db.collection("wall").doc(buttonDelete).delete().then(function () {
                console.log("Document successfully deleted!");
              }).catch(function (error) {
                console.error("Error removing document: ", error);
              });
+            }
            })
          }
 
@@ -253,6 +256,7 @@
 
             save.addEventListener('click', ()=> {
               const newValue = document.getElementById('txt-'+id).value;
+              if(newValue != ''){
               const postRef = db.collection("wall").doc(id)
               postRef.update({
                  wall: newValue
@@ -263,7 +267,9 @@
                  document.getElementById('txt-'+ id).disabled = true;
 
                })
-
+              }else {
+                alert('Tu post no puede estar vacio');
+              }
             })
           })
 
@@ -300,9 +306,6 @@
 
      
      printAll();
-
-     
-
      post.addEventListener('click', () => {
        const publication2 = publication.value;
        let photoData = localStorage.getItem("photo");
@@ -319,6 +322,7 @@
          photoData = ("./images/usuario_chef.jpg");
          nameData = `${newName} ${newLast}`;
        }
+       if(publication.value != ''){
        db.collection('wall').add({
            photoWall: photoData,
            nameWall: nameData,
@@ -329,6 +333,7 @@
            date:firebase.firestore.FieldValue.serverTimestamp(),
          })
          .then(function (docRef) {
+           publication.value='';
            console.log('Document written with ID: ', docRef.id);
          })
          .catch(function (error) {
@@ -336,6 +341,10 @@
          })
 
        printAll();
+       }else{
+         alert ("Tu post no puede estar vacio");
+       }
+
      })
 
      perfil.addEventListener('click', () => {
