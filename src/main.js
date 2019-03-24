@@ -1,3 +1,4 @@
+
 window.controlador = {
 
   firebase: firebase.initializeApp(config),
@@ -29,39 +30,44 @@ window.controlador = {
         alert("La contraseña debe de ser igual");
       };
 
-      if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
-        db.collection('users').add({
-          first: nameUser,
-          last: lastNameUser,
-          gender: genderUser,
-          speciality: specialityUser,
-          mail: mailUser
-        })
-          .then(function (docRef) {
-            localStorage.setItem('UID', docRef.id);
-            console.log('Document written with ID: ', docRef.id);
-          })
-          .catch(function (error) {
-            console.error('Error adding document: ', error);
-          });
-      } else {
-        alert("Todos los campos son obligatorios");
-        //location.replace("#/registro");
-      }
+     
 
-      const verify = () => {
-        var user = firebase.auth().currentUser;
-        user.sendEmailVerification().then(function () {
-          // Email sent.
-          if (user.emailVerified === true)
-            console.log('Send an email')
-          location.hash = '/muro'
-        }).catch(function (error) {
-          // An error happened.
-          console.log(error);
-        });
-      }
-      verify(mailUser);
+
+       if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
+         db.collection('users').add({
+             first: nameUser,
+             last: lastNameUser,
+             gender: genderUser,
+             speciality: specialityUser,
+             mail: mailUser
+           })
+           .then(function (docRef) {
+             localStorage.setItem('UID', docRef.id);
+             console.log('Document written with ID: ', docRef.id);
+             location.hash = '/muro';
+           })
+           .catch(function (error) {
+             console.error('Error adding document: ', error);
+           });
+       } else {
+         alert("Todos los campos son obligatorios");
+         //location.replace("#/registro");
+       };
+
+      //  const verify = () => {
+      //    var user = firebase.auth().currentUser;
+      //    user.sendEmailVerification().then(function () {
+      //      // Email sent.
+      //      if (user.emailVerified === true)
+      //        console.log('Send an email')
+      //      location.hash = '/muro'
+      //    }).catch(function (error) {
+      //      // An error happened.
+      //      console.log(error);
+    
+      //    });
+      //  }
+      //  verify(mailUser);
 
       db.collection("users").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -386,14 +392,17 @@ window.controlador = {
           }
         })
       })
-    });
 
-    logOut.addEventListener('click', () => {
-      console.log('djsfh')
-      firebase.auth().signOut();
-      console.log("Usuario fuera");
-      location.hash = '/login';
-    })
-  },
+     });
+
+     logOut.addEventListener('click', () => {
+       firebase.auth().signOut();
+       console.log("Usuario fuera");
+       location.hash = '/login';
+     })
+
+
+   },
+
 
 }
