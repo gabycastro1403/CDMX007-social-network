@@ -185,7 +185,7 @@ h1 {
 
 #time-line {
    background-image: url("./images/muro.png");
-   background-color: white; 
+   background-color:white; 
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -223,7 +223,7 @@ h1 {
 }
 
 #user-photo {
-    width: 15%; 
+    width: 12%; 
     border-radius: 50%; 
 }
 
@@ -275,6 +275,10 @@ h1 {
     color: #682c2c;
 }
 
+#upload-icon {
+    width: 15%;
+}
+
 #nav-icons {
     width: 80%; 
     margin: 0 auto; 
@@ -294,7 +298,21 @@ h1 {
     text-align: right; 
 }
 
+#save-button{
+    background-color: #682c2c;
+    border: 0px;
+    color: white;
+    font-size: .9em;
+    height: 25px;
+}
+
 /*Estilos botones post*/
+
+.buttons-content{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
 
 .delete{
   background-image: url(./images/delete.png);
@@ -304,7 +322,9 @@ h1 {
   border: 0px;
   width: 40px;
   height:40px;
-
+  position: absolute; 
+  bottom: 10px;
+  left: 100px; 
 }
 
 .edit{
@@ -315,6 +335,9 @@ h1 {
     border: 0px;
     width: 40px;
     height:40px;
+    position: absolute; 
+    bottom: 10px;
+    left: 50px; 
 }
 
 .like {
@@ -325,7 +348,9 @@ h1 {
     border: 0px;
     width: 40px;
     height:40px;
-    
+    position: absolute; 
+    bottom: 10px;
+    left: 0px; 
 }
 
 .like:hover {
@@ -333,8 +358,233 @@ h1 {
     color: white;
 }
 
+/* Estilos del text area */
+.post-editado{
+    width: 100%; 
+}
 
-@media screen and (min-width: 1050px) and (max-width: 1300px) {
+.post-editado:read-write{
+    border: 5px; 
+    background-color: white;
+}
+
+.post-editado:focus {
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 0, 0, 0.6);
+    outline: 0 none;
+}
+
+@media (min-width: 550px) and (max-width: 649px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 70%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+
+/*Estilo letra post*/
+#user-post {
+    font-size: 1.21em;
+}
+}
+
+@media (min-width: 650px) and (max-width: 767px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 70%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+/*Estilo letra post*/
+#user-post {
+    font-size: 1.35em;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1049px) {
+
+    /* Estilos login */
+
+    #logo {
+        width: 306px;
+        height: 285px;
+    }
+
+    .input-login {
+        width: 65%;
+        font-size: 2.1em;
+    }
+
+    .options {
+        font-size: 2.1em;
+    }
+
+    .logo-red {
+        margin-top: 39px;
+        margin-bottom: 19px;
+    }
+  
+    #register-one {
+        font-size: 1.9em;
+    }
+
+
+    #button-login {
+        width: 55%;
+        font-size: 2.1em;
+        margin-bottom: 10px;
+    }
+
+/* Estilos muro */
+    #perfil-usuario {
+        font-size: 2.0em;
+       
+    }
+
+    #mini-photo {
+        width: 13%;
+        height: 50%;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    #publication {
+         height: 85px;
+         margin-bottom: 6px;
+         margin-top: 9px;
+           
+        }
+    
+    select {
+         word-wrap: normal;
+        font-size: 1.5em;
+        }   
+
+
+    #upload-icon {
+            width: 22%;
+        }
+
+    #user-photo {
+        width: 12%;
+        border-radius: 50%;
+        margin-bottom: 4px;
+        }  
+        
+    #post {
+    height: 39px;
+    width: 69px;
+    font-size: 1.5em;
+        }    
+    #post-select {
+
+        height: 39px;
+        
+        }
+        
+    #user-post p {
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-size: 1.9em;
+    }
+
+
+    #user-post {
+        margin-bottom: 20px;
+    
+    }
+
+    #save-button{
+        height: 39px;
+        width: 69px;
+        font-size: .8em;
+    }
+/* Estilos icons nav*/
+#nav-icons {
+    width: 70%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.9em;
+    line-height: inherit;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.4em;
+    line-height: inherit;
+}
+}
+
+@media screen and (min-width: 1050px){
 #image-wallpaper {
     background-image: url("./images/wallpaper.jpg");
     width: 60%;
@@ -359,5 +609,318 @@ h1 {
     position: absolute;
     bottom: 0px;
     text-align: center;
+}
+
+/*Estilos muro*/
+
+#perfil-usuario {
+    font-size: 2.0em;
+   
+}
+
+#mini-photo {
+    width: 10%;
+
+}
+#publication {
+     height: 85px;
+     margin-bottom: 6px
+       
+    }
+
+select {
+     word-wrap: normal;
+    font-size: 1.5em;
+    }   
+
+
+#upload-icon {
+        width: 22%;
+    }
+
+#user-photo {
+    width: 12%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    }  
+    
+#post {
+height: 39px;
+width: 69px;
+font-size: 1.5em;
+    }    
+#post-select {
+
+    height: 39px;
+    
+    }
+    
+#user-post p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.75em;
+}
+
+#save-button{
+    height: 39px;
+    width: 69px;
+    font-size: .9em;
+}
+
+#user-photo {
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+/* Estilos icons nav*/
+#nav-icons {
+    width: 80%;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-bottom: 19px;
+    margin-left: 162px;
+}
+
+
+#log-out {
+    width: 8%;
+    margin-left: 15%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 8%;
+    margin-right: 8%;
+    margin-left: 15%;
+}
+
+#time-line {
+    width: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.7em;
+    line-height: inherit;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.4em;
+    line-height: inherit;
+}
+}
+
+@media (min-width: 1200px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 60%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+
+#user-photo {
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+#user-post {
+    width: 70%; 
+}
+
+#post-area {
+    width: 70%;
+}
+
+#perfil-usuario {
+    margin-right: 15%; 
+}
+}
+
+@media (min-width: 1380px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 50%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+
+#user-photo {
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+}
+
+@media (min-width: 1400px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 40%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 10%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 10%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#user-photo {
+    width: 7%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+#mini-photo {
+    width: 8%;
+}
+}
+
+@media (min-width: 1900px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 40%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 8%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 8%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 8%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#user-photo {
+    width: 6%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+#user-post {
+    width: 60%; 
+}
+
+#post-area {
+    width: 60%;
+}
+#perfil-usuario {
+    margin-right: 20%; 
+}
+}
+
+@media (min-width: 2500px) {
+    /* Estilos icons nav*/
+#nav-icons {
+    width: 30%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 8%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 8%;
+    margin-right: 8%;
+    margin-left: 12%;
+}
+
+#time-line {
+    width: 8%;
+    margin-left: 12%;
+    margin-right: 8%;
+}
+
+#user-photo {
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 4px;
 }
 }

@@ -1,8 +1,7 @@
  window.controlador = {
 
    firebase: firebase.initializeApp(config),
-
-
+  
    registro: () => {
      const register = document.getElementById('register');
 
@@ -216,12 +215,13 @@
             let dataWall = `<div id="user-post">
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
-            <textarea id="txt-${idPublication}"class ="post-editado" disabled = "true" >${doc.data().wall}</textarea>
+            <textarea id="txt-${idPublication}" class ="post-editado" disabled = "true">${doc.data().wall}</textarea>
             <p id="save-${idPublication}"> </p>
+            <div class="buttons-content">  
             <button class="delete" id="${idPublication}"></button> 
             <button class="edit" id="${idPublication}"></button>
             <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
-
+            </div>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            } else {
@@ -229,7 +229,9 @@
             <img id="user-photo" src="${doc.data().photoWall}">
             <p>${doc.data().nameWall}</p>
             <p>${doc.data().wall}</p>
+            <div class="buttons-content"> 
             <button data-like=${doc.data().like} class="like" id="${idPublication}">${doc.data().like}</button>
+            </div>
            </div>`
            newPost.insertAdjacentHTML('beforeend', dataWall);
            }
@@ -300,66 +302,7 @@
 
      };
      printAll();
-    inicializar()
-     var imagenUser;
-      var storageRef;
-      function inicializar () {
-        alert("holi");
-      const imagenUser = document.getElementById('img-user');
-      imagenUser.addEventListener('change', subirImagenAFirebase, false);
-
-      storageRef= firebase.storage().ref();
-
-
-      }
-
-    function subirImagenAFirebase(){
-      alert("holi");
-      var imagenSubir = imagenUser.files[0];
-
-    var uploadTask = storageRef.child('imagenes' + imagenSubir.name).put(imagenSubir);
-
-    uploadTask.on('state_changed', function(snapshot){
-
-      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log('Upload is ' + progress + '% done');
-      switch (snapshot.state) {
-        case firebase.storage.TaskState.PAUSED: // or 'paused'
-          console.log('Upload is paused');
-          break;
-        case firebase.storage.TaskState.RUNNING: // or 'running'
-          console.log('Upload is running');
-          break;
-      }
-    }, function(error) {
-      // Handle unsuccessful uploads
-    }, function() {
-      // Handle successful uploads on complete
-      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log('File available at', downloadURL);
-        alert(downloadURL);
-      });
-    });
-
-    }
-     
-      // var storage = firebase.storage();
-      // var storageRef = storage.ref();
-     
-      // const upImage = ()=>{
-      //   var imagenSubir = imagenUser.files[0];
-      //  storageRef.child('imagenes/' + imagenSubir.name).put(imagenSubir);
-      
-      // }
-
-      // const inicializar = () => {
-      // imagenUser.addEventListener('change',upImage,false)
-      //  alert ('Si estoy funcionando');
-      //  var storageRef = firebase.storage().ref();
-      // }
-      // inicializar()
-      
+    
      
        
      post.addEventListener('click', () => {
