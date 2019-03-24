@@ -37,6 +37,37 @@ Las cuales se completaron siempre pensando en los usuarios de Cuisine Divine.
 Para conocer el proceso de diseño y pruebas de usuario visita el siguiente link: 
 [Cuisine Divine](https://docs.google.com/document/d/1_9Q59hzfISf8It8oZPf3vOPP6TYuqCIUY26qmyv-8uo/edit?usp=sharing)
 
+## Definición del producto
+Una Red Social es un servicio online que gira en torno al usuario, que le permite compartir información, generar contenido y estar al tanto de las últimas novedades acerca de sus intereses sociales.
+
+Apesar de que existes varios tipos de redes sociales, estas tienen varios elementos en común:
+
+* Poner en contacto a las personas, de tal forma que, se facilite la conexión de forma rápida y sencilla.
+
+* Permite la interacción entre todos los usuarios de la plataforma, de distintas maneras.Ya sea compartiendo contenido y/o facilitando contacos de interés para el otro usuario.
+
+* Fomenta la posibilidad de que los usuarios que se contacten online acaben entablando un contacto real.
+
+* Permite el contacto ilimitado entre los usuarios desde cualquier lugar.
+
+Con base en esto creamos Cuisine Divine.
+En nuestra investigación detectamos que:
+* Los estudiantes de gastronomía no tenían un espacio donde recibir recomendaciones de utensilios de trabajo, ingredientes y todo esto a un bajo costo y de buena calidad.
+* Los estudiantes de gastronomía necesitan seguirse preparando y no tienen un espacio confiable donde recibir información acerca de cursos ó becas académicas.
+
+Esta investigación también nos arrojo que el los estudiantes de gastronomía que más necesidad tienen de este tipo de información son los estudiantes especializados en la alta cocina.
+
+Es aquí donde hacemos nuestra propuesta de valor, ya que Cuisine Divine no solo es un espacio para compartir recetas, si no que además, pueden interactuar con otros estudiantes de alta cocina para saber donde comprar todos estos utensilios o ingredientes de la mejor calidad. También esta pensado en que se puedan compartir cursos o becas para seguirse perfeccionando.
+
+Las principales funcionalidades de esta red social son:
+* Un espacio donde interactuen con otros  estudiantes especilizados en la alta cocina.
+
+* Login con Google y Facebook para un acceso más agíl y rápido.
+
+* Acceso al muro de publicaciones, donde puede darle like a sus publicaciones favoritas, editar y borrar sus propias publicaciones.
+
+Fuente : [3 Elementos básicos de una Red Social](https://www.eipe.es/blog/3-elementos-que-componen-red-social/)
+
 ## Especificaciones de Código
 * Para este proyecto utilizamos HTML5.
 En nuestro HTML no ocurre ningún evento DOM, todo ocurre a través de JavaScript.
