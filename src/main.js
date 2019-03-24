@@ -17,7 +17,7 @@
        const mailId = localStorage.setItem("mail", mailUser);
        const auth = firebase.auth();
        var db = firebase.firestore();
-       const storage = app.storage()
+    
        
        const settings = {
          timestampsInSnapshots: true
@@ -44,6 +44,7 @@
            .then(function (docRef) {
              localStorage.setItem('UID', docRef.id);
              console.log('Document written with ID: ', docRef.id);
+             location.hash = '/muro';
            })
            .catch(function (error) {
              console.error('Error adding document: ', error);
@@ -51,22 +52,22 @@
        } else {
          alert("Todos los campos son obligatorios");
          //location.replace("#/registro");
-       }
+       };
 
-       const verify = () => {
-         var user = firebase.auth().currentUser;
-         user.sendEmailVerification().then(function () {
-           // Email sent.
-           if (user.emailVerified === true)
-             console.log('Send an email')
-           location.hash = '/muro'
-         }).catch(function (error) {
-           // An error happened.
-           console.log(error);
+      //  const verify = () => {
+      //    var user = firebase.auth().currentUser;
+      //    user.sendEmailVerification().then(function () {
+      //      // Email sent.
+      //      if (user.emailVerified === true)
+      //        console.log('Send an email')
+      //      location.hash = '/muro'
+      //    }).catch(function (error) {
+      //      // An error happened.
+      //      console.log(error);
     
-         });
-       }
-       verify(mailUser);
+      //    });
+      //  }
+      //  verify(mailUser);
 
 
 
@@ -399,7 +400,6 @@
      });
 
      logOut.addEventListener('click', () => {
-       console.log('djsfh')
        firebase.auth().signOut();
        console.log("Usuario fuera");
        location.hash = '/login';
