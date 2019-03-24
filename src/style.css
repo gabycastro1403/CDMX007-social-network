@@ -184,7 +184,7 @@ h1 {
 }
 
 #time-line {
-   background-image: url("./images/muro.png");
+   background-image: url("./images/muro2.png");
    background-color:white; 
    background-position: center;
    background-size: cover;
@@ -194,6 +194,10 @@ h1 {
    border: 0px; 
    margin-left: 8%;
    margin-right: 8%;
+}
+
+#time-line:hover {
+    background-image: url("./images/muro.png");
 }
 
 #perfil {
@@ -209,6 +213,10 @@ h1 {
    margin-left: 8%;
 }
 
+#perfil:hover {
+    background-image: url("./images/perfil.png");
+}
+
 #log-out {
     background-image: url("./images/cerrar.png");
     background-color: white; 
@@ -220,6 +228,10 @@ h1 {
     border: 0px; 
     margin-left: 8%;
     margin-right: 8%;
+}
+
+#log-out:hover {
+    background-image: url("./images/cerrar2.png");
 }
 
 #user-photo {
