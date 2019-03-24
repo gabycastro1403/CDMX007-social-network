@@ -23,51 +23,31 @@ window.controlador = {
       };
       db.settings(settings);
 
-
       if (passwordUser === passwordConfirmation) {
         auth.createUserWithEmailAndPassword(mailUser, passwordUser);
       } else if (passwordUser != passwordConfirmation) {
         alert("La contraseña debe de ser igual");
       };
 
-     
 
+      if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
+        db.collection('users').add({
+          first: nameUser,
+          last: lastNameUser,
+          gender: genderUser,
+          speciality: specialityUser,
+          mail: mailUser
+        })
+          .then(function (docRef) {
+            localStorage.setItem('UID', docRef.id);
+          })
+          .catch(function (error) {
+            console.error('Error adding document: ', error);
+          });
+      } else {
+        alert("Todos los campos son obligatorios");
+      }
 
-       if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
-         db.collection('users').add({
-             first: nameUser,
-             last: lastNameUser,
-             gender: genderUser,
-             speciality: specialityUser,
-             mail: mailUser
-           })
-           .then(function (docRef) {
-             localStorage.setItem('UID', docRef.id);
-             console.log('Document written with ID: ', docRef.id);
-             location.hash = '/muro';
-           })
-           .catch(function (error) {
-             console.error('Error adding document: ', error);
-           });
-       } else {
-         alert("Todos los campos son obligatorios");
-         //location.replace("#/registro");
-       };
-
-      //  const verify = () => {
-      //    var user = firebase.auth().currentUser;
-      //    user.sendEmailVerification().then(function () {
-      //      // Email sent.
-      //      if (user.emailVerified === true)
-      //        console.log('Send an email')
-      //      location.hash = '/muro'
-      //    }).catch(function (error) {
-      //      // An error happened.
-      //      console.log(error);
-    
-      //    });
-      //  }
-      //  verify(mailUser);
 
       db.collection("users").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -80,6 +60,14 @@ window.controlador = {
           }
         });
       });
+
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          location.hash = '/muro';
+        } else {
+          console.log('no hay usuario')
+        }
+      })
     });
 
   },
@@ -143,9 +131,6 @@ window.controlador = {
         location.hash = '/muro';
       } else {
         console.log('no hay usuario')
-
-        //location.hash = '/login';
-
       }
     })
   },
@@ -160,11 +145,8 @@ window.controlador = {
     const timeLine = document.getElementById('time-line');
     const secondProfile = document.getElementById("second-profile");
     const postUser = document.getElementById('post-user');
-    const auth = firebase.auth();
     var db = firebase.firestore();
-    //var storage = firebase.app().storage("red-social-dolce.appspot.com");
-    //var storage = customApp.storage("red-social-dolce.appspot.com");
-
+    
     const settings = {
       timestampsInSnapshots: true
     };
@@ -239,9 +221,9 @@ window.controlador = {
             const confirmation = confirm("¿Estas seguro que quieres borrar este post?");
             if (confirmation == true) {
               db.collection("wall").doc(buttonDelete).delete().then(function () {
-                console.log("Document successfully deleted!");
+                console.log("Documento eliminad");
               }).catch(function (error) {
-                console.error("Error removing document: ", error);
+                console.error("Error al mover el documento: ", error);
               });
             }
           })
@@ -269,10 +251,9 @@ window.controlador = {
                   })
               } else {
                 alert('Tu post no puede estar vacio');
-              }
-            })
-          })
-
+              };
+            });
+          });
         }
 
         const buttonLike = document.getElementsByClassName("like");
@@ -282,20 +263,16 @@ window.controlador = {
             let idLike = buttonLike[i].id;
             let getLike = parseInt(e.target.dataset.like);
             getLike++;
-            console.log(getLike);
-
-
             const postRef = db.collection("wall").doc(idLike)
             postRef.update({
               like: getLike
             })
               .then(() => {
                 console.log("Documento actualizado");
-              })
-          })
-        }
-      })
-
+              });
+          });
+        };
+      });
     };
     printAll();
 
@@ -306,10 +283,7 @@ window.controlador = {
       let photoData = localStorage.getItem("photo");
       let nameData = localStorage.getItem("name");
       let userUID = localStorage.getItem("UID");
-      console.log("Este es el uid", userUID)
-
-
-
+    
       let usuario = JSON.parse(localStorage.getItem('usuario'));
       if (photoData == 'null' && nameData == "null") {
         let newName = localStorage.getItem("nameNull");
@@ -329,18 +303,16 @@ window.controlador = {
         })
           .then(function (docRef) {
             publication.value = '';
-            console.log('Document written with ID: ', docRef.id);
+            console.log('Documento ID: ', docRef.id);
           })
           .catch(function (error) {
-            console.error('Error adding document: ', error);
-          })
-
+            console.error('Error al aderir el documento: ', error);
+          });
         printAll();
       } else {
         alert("Tu post no puede estar vacio");
-      }
-
-    })
+      };
+    });
 
     userProfile.addEventListener('click', () => {
       var db = firebase.firestore();
@@ -356,7 +328,7 @@ window.controlador = {
             <p>${doc.data().gender}</p>
             <p><${doc.data().mail}/p></div>`
             data.insertAdjacentHTML('beforeend', dataUser)
-          }
+          };
         });
       });
       var user = firebase.auth().currentUser;
@@ -374,7 +346,6 @@ window.controlador = {
               <p>${profile.email}</p>
               </div>`
             data.insertAdjacentHTML('beforeend', profileUSer);
-
           };
         });
       };
@@ -393,16 +364,13 @@ window.controlador = {
         })
       })
 
-     });
 
-     logOut.addEventListener('click', () => {
-       firebase.auth().signOut();
-       console.log("Usuario fuera");
-       location.hash = '/login';
-     })
-
-
-   },
+    logOut.addEventListener('click', () => {
+      firebase.auth().signOut();
+      console.log("Usuario fuera");
+      location.hash = '/login';
+    });
+  },
 
 
 }
