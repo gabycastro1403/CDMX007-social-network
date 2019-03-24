@@ -1,3 +1,4 @@
+
 window.controlador = {
 
   firebase: firebase.initializeApp(config),
@@ -28,6 +29,7 @@ window.controlador = {
         alert("La contraseña debe de ser igual");
       };
 
+
       if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
         db.collection('users').add({
           first: nameUser,
@@ -45,6 +47,7 @@ window.controlador = {
       } else {
         alert("Todos los campos son obligatorios");
       }
+
 
       db.collection("users").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -360,7 +363,7 @@ window.controlador = {
           }
         })
       })
-    });
+
 
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
@@ -368,5 +371,6 @@ window.controlador = {
       location.hash = '/login';
     });
   },
+
 
 }
