@@ -2,6 +2,7 @@
 
    firebase: firebase.initializeApp(config),
 
+
    registro: () => {
      const register = document.getElementById('register');
 
@@ -17,6 +18,8 @@
        const mailId = localStorage.setItem("mail", mailUser);
        const auth = firebase.auth();
        var db = firebase.firestore();
+       const storage = app.storage()
+       
        const settings = {
          timestampsInSnapshots: true
        };
@@ -162,8 +165,11 @@
      const timeLine = document.getElementById('time-line');
      const perfilUsuario = document.getElementById("perfil-usuario");
      const postUser = document.getElementById('post-user');
-
+     const auth = firebase.auth();
      var db = firebase.firestore();
+     //var storage = firebase.app().storage("red-social-dolce.appspot.com");
+     //var storage = customApp.storage("red-social-dolce.appspot.com");
+     
      const settings = {
        timestampsInSnapshots: true
      };
@@ -198,9 +204,6 @@
      } else {
        perfilUsuario.innerHTML = `<img id="mini-photo"src="${photoData}">  ${nameData}`
      }
-
-
-
 
      const printAll = () => {
 
@@ -245,7 +248,6 @@
             }
            })
          }
-
          const edit = document.getElementsByClassName('edit');
          for (let i= 0; i<edit.length; i++){
            const id = edit[i].id;
@@ -291,21 +293,75 @@
                })
                .then(() => {
                  console.log("Documento actualizado");
-                
                })
-
            })
          }
-
-
-
-
-
        })
-     };
 
-     
+     };
      printAll();
+    inicializar()
+     var imagenUser;
+      var storageRef;
+      function inicializar () {
+        alert("holi");
+      const imagenUser = document.getElementById('img-user');
+      imagenUser.addEventListener('change', subirImagenAFirebase, false);
+
+      storageRef= firebase.storage().ref();
+
+
+      }
+
+    function subirImagenAFirebase(){
+      alert("holi");
+      var imagenSubir = imagenUser.files[0];
+
+    var uploadTask = storageRef.child('imagenes' + imagenSubir.name).put(imagenSubir);
+
+    uploadTask.on('state_changed', function(snapshot){
+
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+          console.log('Upload is running');
+          break;
+      }
+    }, function(error) {
+      // Handle unsuccessful uploads
+    }, function() {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        console.log('File available at', downloadURL);
+        alert(downloadURL);
+      });
+    });
+
+    }
+     
+      // var storage = firebase.storage();
+      // var storageRef = storage.ref();
+     
+      // const upImage = ()=>{
+      //   var imagenSubir = imagenUser.files[0];
+      //  storageRef.child('imagenes/' + imagenSubir.name).put(imagenSubir);
+      
+      // }
+
+      // const inicializar = () => {
+      // imagenUser.addEventListener('change',upImage,false)
+      //  alert ('Si estoy funcionando');
+      //  var storageRef = firebase.storage().ref();
+      // }
+      // inicializar()
+      
+     
+       
      post.addEventListener('click', () => {
        const publication2 = publication.value;
        let photoData = localStorage.getItem("photo");
