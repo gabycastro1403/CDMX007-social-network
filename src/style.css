@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
-
-
 body {
     background-color: #682c2c;
 }
@@ -14,11 +12,9 @@ body {
     top: -15%; 
 }
 
-
  .hide{
     display:none;
 } 
-
 
 #login {
     margin: 0 auto;
@@ -143,7 +139,6 @@ h1 {
     color: #682c2c;
 }
 
-
 #register {
     margin-left: 15px;
     font-size: 1em;
@@ -200,7 +195,7 @@ h1 {
     background-image: url("./images/muro.png");
 }
 
-#perfil {
+#user-profile {
    background-image: url("./images/perfil2.png");
    background-color: white; 
    background-position: center;
@@ -213,7 +208,7 @@ h1 {
    margin-left: 8%;
 }
 
-#perfil:hover {
+#user-profile:hover {
     background-image: url("./images/perfil.png");
 }
 
@@ -302,7 +297,7 @@ h1 {
     border-radius: 50%; 
 }
 
-#perfil-usuario {
+#second-profile {
     margin-top: 10px; 
     margin-bottom: 10px; 
     margin-right: 10%;
@@ -339,7 +334,7 @@ h1 {
   left: 100px; 
 }
 
-.edit{
+.edit {
     background-image: url(./images/edit.png);
     background-position: center;
     background-size:cover;
@@ -371,16 +366,16 @@ h1 {
 }
 
 /* Estilos del text area */
-.post-editado{
+.post-edited{
     width: 100%; 
 }
 
-.post-editado:read-write{
+.post-edited:read-write{
     border: 5px; 
     background-color: white;
 }
 
-.post-editado:focus {
+.post-edited:focus {
     box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 0, 0, 0.6);
     outline: 0 none;
 }
@@ -399,6 +394,11 @@ h1 {
     font-size: 1em; 
 }
 
+.jump {
+    width: 100%; 
+    height: 100px;
+}
+
 @media (min-width: 550px) and (max-width: 649px) {
     /* Estilos icons nav*/
 #nav-icons {
@@ -409,14 +409,13 @@ h1 {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -427,7 +426,6 @@ h1 {
     margin-left: 12%;
     margin-right: 8%;
 }
-
 
 /*Estilo letra post*/
 #user-post {
@@ -445,14 +443,13 @@ h1 {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -468,6 +465,7 @@ h1 {
 #user-post {
     font-size: 1.35em;
 }
+
 /* Estilos del perfil */
 .profile-photo {
     width: 30%;
@@ -513,7 +511,7 @@ h1 {
     }
 
 /* Estilos muro */
-    #perfil-usuario {
+    #second-profile {
         font-size: 2.0em;
        
     }
@@ -524,6 +522,7 @@ h1 {
         border-radius: 50%;
         margin-right: 8px;
     }
+
     #publication {
          height: 85px;
          margin-bottom: 6px;
@@ -535,7 +534,6 @@ h1 {
          word-wrap: normal;
         font-size: 1.5em;
         }   
-
 
     #upload-icon {
             width: 22%;
@@ -553,9 +551,7 @@ h1 {
     font-size: 1.5em;
         }    
     #post-select {
-
         height: 39px;
-        
         }
         
     #user-post p {
@@ -564,10 +560,8 @@ h1 {
         font-size: 1.9em;
     }
 
-
     #user-post {
         margin-bottom: 20px;
-    
     }
 
     #save-button{
@@ -575,7 +569,9 @@ h1 {
         width: 69px;
         font-size: .8em;
     }
+
 /* Estilos icons nav*/
+
 #nav-icons {
     width: 70%;
     margin-top: 11px;
@@ -584,14 +580,13 @@ h1 {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -621,6 +616,7 @@ button, input, optgroup, select, textarea {
 .profile-photo {
     width: 25%;
 }
+
 #profile-user {
     font-size: 2em; 
 }
@@ -643,8 +639,8 @@ button, input, optgroup, select, textarea {
     height: 0vh;
     background-color: white;
     bottom: 0px;
-
 }
+
 #login-white {
     width: 40%;
     height: 87vh;
@@ -655,29 +651,26 @@ button, input, optgroup, select, textarea {
 
 /*Estilos muro*/
 
-#perfil-usuario {
+#second-profile {
     font-size: 2.0em;
-   
 }
 
 #mini-photo {
     width: 10%;
-
 }
+
 #publication {
-     height: 85px;
-     margin-bottom: 6px
-       
+    height: 85px;
+    margin-bottom: 6px
     }
 
 select {
-     word-wrap: normal;
+    word-wrap: normal;
     font-size: 1.5em;
     }   
 
-
 #upload-icon {
-        width: 22%;
+    width: 22%;
     }
 
 #user-photo {
@@ -687,14 +680,13 @@ select {
     }  
     
 #post {
-height: 39px;
-width: 69px;
-font-size: 1.5em;
-    }    
-#post-select {
-
     height: 39px;
-    
+    width: 69px;
+    font-size: 1.5em;
+    }    
+
+#post-select {
+    height: 39px;
     }
     
 #user-post p {
@@ -724,14 +716,13 @@ font-size: 1.5em;
     margin-left: 162px;
 }
 
-
 #log-out {
     width: 8%;
     margin-left: 15%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 8%;
     margin-right: 8%;
     margin-left: 15%;
@@ -756,7 +747,9 @@ button, input, optgroup, select, textarea {
     font-size: 1.4em;
     line-height: inherit;
 }
+
 /* Estilos del perfil */
+
 .profile-photo {
     width: 20%;
 }
@@ -767,7 +760,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 1200px) {
-    /* Estilos icons nav*/
+
+/* Estilos icons nav*/
+
 #nav-icons {
     width: 60%;
     margin-top: 11px;
@@ -776,14 +771,13 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -794,7 +788,6 @@ button, input, optgroup, select, textarea {
     margin-left: 12%;
     margin-right: 8%;
 }
-
 
 #user-photo {
     width: 10%;
@@ -810,11 +803,12 @@ button, input, optgroup, select, textarea {
     width: 70%;
 }
 
-#perfil-usuario {
+#second-profile {
     margin-right: 15%; 
 }
 
 /* Estilos del perfil */
+
 .profile-photo {
     width: 20%;
 }
@@ -824,7 +818,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 1380px) {
-    /* Estilos icons nav*/
+
+/* Estilos icons nav*/
+
 #nav-icons {
     width: 50%;
     margin-top: 11px;
@@ -833,14 +829,13 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -852,7 +847,6 @@ button, input, optgroup, select, textarea {
     margin-right: 8%;
 }
 
-
 #user-photo {
     width: 10%;
     border-radius: 50%;
@@ -861,7 +855,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 1400px) {
-    /* Estilos icons nav*/
+
+ /* Estilos icons nav*/
+
 #nav-icons {
     width: 40%;
     margin-top: 11px;
@@ -870,14 +866,13 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 10%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 10%;
     margin-right: 8%;
     margin-left: 12%;
@@ -901,7 +896,9 @@ button, input, optgroup, select, textarea {
 }
 
 @media (min-width: 1900px) {
-    /* Estilos icons nav*/
+
+/* Estilos icons nav*/
+
 #nav-icons {
     width: 40%;
     margin-top: 11px;
@@ -910,14 +907,13 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 8%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 8%;
     margin-right: 8%;
     margin-left: 12%;
@@ -942,13 +938,16 @@ button, input, optgroup, select, textarea {
 #post-area {
     width: 60%;
 }
-#perfil-usuario {
+
+#second-profile {
     margin-right: 20%; 
 }
 }
 
 @media (min-width: 2500px) {
-    /* Estilos icons nav*/
+
+/* Estilos icons nav*/
+
 #nav-icons {
     width: 30%;
     margin-top: 11px;
@@ -957,14 +956,13 @@ button, input, optgroup, select, textarea {
     margin-left: auto;
 }
 
-
 #log-out {
     width: 8%;
     margin-left: 12%;
     margin-right: 8%;
 }
 
-#perfil {
+#user-profile {
     width: 8%;
     margin-right: 8%;
     margin-left: 12%;
