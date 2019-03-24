@@ -751,6 +751,18 @@ button, input, optgroup, select, textarea {
     border-radius: 50%;
     margin-bottom: 4px;
 }
+
+#user-post {
+    width: 70%; 
+}
+
+#post-area {
+    width: 70%;
+}
+
+#perfil-usuario {
+    margin-right: 15%; 
+}
 }
 
 @media (min-width: 1380px) {
@@ -788,7 +800,6 @@ button, input, optgroup, select, textarea {
     border-radius: 50%;
     margin-bottom: 4px;
 }
-
 }
 
 @media (min-width: 1400px) {
@@ -829,6 +840,7 @@ button, input, optgroup, select, textarea {
 #mini-photo {
     width: 8%;
 }
+}
 
 @media (min-width: 1900px) {
     /* Estilos icons nav*/
@@ -863,6 +875,17 @@ button, input, optgroup, select, textarea {
     width: 6%;
     border-radius: 50%;
     margin-bottom: 4px;
+}
+
+#user-post {
+    width: 60%; 
+}
+
+#post-area {
+    width: 60%;
+}
+#perfil-usuario {
+    margin-right: 20%; 
 }
 }
 
