@@ -17,6 +17,8 @@
        const mailId = localStorage.setItem("mail", mailUser);
        const auth = firebase.auth();
        var db = firebase.firestore();
+       const storage = app.storage()
+       
        const settings = {
          timestampsInSnapshots: true
        };
@@ -162,8 +164,11 @@
      const timeLine = document.getElementById('time-line');
      const perfilUsuario = document.getElementById("perfil-usuario");
      const postUser = document.getElementById('post-user');
-
+     const auth = firebase.auth();
      var db = firebase.firestore();
+     //var storage = firebase.app().storage("red-social-dolce.appspot.com");
+     //var storage = customApp.storage("red-social-dolce.appspot.com");
+     
      const settings = {
        timestampsInSnapshots: true
      };
@@ -198,9 +203,6 @@
      } else {
        perfilUsuario.innerHTML = `<img id="mini-photo"src="${photoData}">  ${nameData}`
      }
-
-
-
 
      const printAll = () => {
 
@@ -248,7 +250,6 @@
             }
            })
          }
-
          const edit = document.getElementsByClassName('edit');
          for (let i= 0; i<edit.length; i++){
            const id = edit[i].id;
@@ -294,21 +295,16 @@
                })
                .then(() => {
                  console.log("Documento actualizado");
-                
                })
-
            })
          }
-
-
-
-
-
        })
-     };
 
-     
+     };
      printAll();
+    
+     
+       
      post.addEventListener('click', () => {
        const publication2 = publication.value;
        let photoData = localStorage.getItem("photo");
@@ -373,13 +369,14 @@
          user.providerData.forEach(function (profile) {
            postUser.innerHTML = '';
            if (profile.photoURL == null) {
-             data.innerHTML = `<img src="./images/usuario_chef.jpg">`
+             data.innerHTML = `<img class="profile-photo" src="./images/usuario_chef.jpg">`
            } else {
-             let profileUSer = `<div>
-      <img src="${profile.photoURL}">
-      <p>${profile.displayName}</p>
-      <p>${profile.email}</p>;
-      </div>`
+             data.innerHTML ='';
+             let profileUSer = `<div id="profile-user">
+              <img class="profile-photo" src="${profile.photoURL}">
+              <p>${profile.displayName}</p>
+              <p>${profile.email}</p>
+              </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
              
            };

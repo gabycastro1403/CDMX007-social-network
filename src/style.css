@@ -184,7 +184,7 @@ h1 {
 }
 
 #time-line {
-   background-image: url("./images/muro.png");
+   background-image: url("./images/muro2.png");
    background-color:white; 
    background-position: center;
    background-size: cover;
@@ -194,6 +194,10 @@ h1 {
    border: 0px; 
    margin-left: 8%;
    margin-right: 8%;
+}
+
+#time-line:hover {
+    background-image: url("./images/muro.png");
 }
 
 #perfil {
@@ -209,6 +213,10 @@ h1 {
    margin-left: 8%;
 }
 
+#perfil:hover {
+    background-image: url("./images/perfil.png");
+}
+
 #log-out {
     background-image: url("./images/cerrar.png");
     background-color: white; 
@@ -220,6 +228,10 @@ h1 {
     border: 0px; 
     margin-left: 8%;
     margin-right: 8%;
+}
+
+#log-out:hover {
+    background-image: url("./images/cerrar2.png");
 }
 
 #user-photo {
@@ -373,6 +385,20 @@ h1 {
     outline: 0 none;
 }
 
+/* Estilos del perfil */
+
+.profile-photo {
+    width: 40%;
+}
+
+#profile-user {
+    width: 80%; 
+    margin: 0 auto;
+    text-align: center; 
+    color: white;  
+    font-size: 1em; 
+}
+
 @media (min-width: 550px) and (max-width: 649px) {
     /* Estilos icons nav*/
 #nav-icons {
@@ -441,6 +467,14 @@ h1 {
 /*Estilo letra post*/
 #user-post {
     font-size: 1.35em;
+}
+/* Estilos del perfil */
+.profile-photo {
+    width: 30%;
+}
+
+#profile-user {
+    font-size: 1.8em; 
 }
 }
 
@@ -582,6 +616,14 @@ button, input, optgroup, select, textarea {
     font-size: 1.4em;
     line-height: inherit;
 }
+
+/* Estilos del perfil */
+.profile-photo {
+    width: 25%;
+}
+#profile-user {
+    font-size: 2em; 
+}
 }
 
 @media screen and (min-width: 1050px){
@@ -721,6 +763,14 @@ button, input, optgroup, select, textarea {
     font-size: 1.4em;
     line-height: inherit;
 }
+/* Estilos del perfil */
+.profile-photo {
+    width: 20%;
+}
+
+#profile-user {
+    font-size: 2em; 
+}
 }
 
 @media (min-width: 1200px) {
@@ -757,6 +807,26 @@ button, input, optgroup, select, textarea {
     width: 10%;
     border-radius: 50%;
     margin-bottom: 4px;
+}
+
+#user-post {
+    width: 70%; 
+}
+
+#post-area {
+    width: 70%;
+}
+
+#perfil-usuario {
+    margin-right: 15%; 
+}
+
+/* Estilos del perfil */
+.profile-photo {
+    width: 20%;
+}
+#profile-user {
+    font-size: 2em; 
 }
 }
 
@@ -795,7 +865,6 @@ button, input, optgroup, select, textarea {
     border-radius: 50%;
     margin-bottom: 4px;
 }
-
 }
 
 @media (min-width: 1400px) {
@@ -836,6 +905,7 @@ button, input, optgroup, select, textarea {
 #mini-photo {
     width: 8%;
 }
+}
 
 @media (min-width: 1900px) {
     /* Estilos icons nav*/
@@ -870,6 +940,17 @@ button, input, optgroup, select, textarea {
     width: 6%;
     border-radius: 50%;
     margin-bottom: 4px;
+}
+
+#user-post {
+    width: 60%; 
+}
+
+#post-area {
+    width: 60%;
+}
+#perfil-usuario {
+    margin-right: 20%; 
 }
 }
 
