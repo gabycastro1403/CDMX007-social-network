@@ -275,6 +275,10 @@ h1 {
     color: #682c2c;
 }
 
+#upload-icon {
+    width: 15%;
+}
+
 #nav-icons {
     width: 80%; 
     margin: 0 auto; 
@@ -361,6 +365,141 @@ h1 {
     outline: 0 none;
 }
 
+
+@media (min-width: 768px) and (max-width: 1049px) {
+
+    /* Estilos login */
+
+    #logo {
+        width: 306px;
+        height: 285px;
+    }
+
+    .input-login {
+        width: 65%;
+        font-size: 2.1em;
+    }
+
+    .options {
+        font-size: 2.1em;
+    }
+
+    .logo-red {
+        margin-top: 39px;
+        margin-bottom: 19px;
+    }
+  
+    #register-one {
+        font-size: 1.9em;
+    }
+
+
+    #button-login {
+        width: 55%;
+        font-size: 2.1em;
+        margin-bottom: 10px;
+    }
+
+/* Estilos muro */
+    #perfil-usuario {
+        font-size: 2.0em;
+       
+    }
+
+    #mini-photo {
+        width: 15%;
+        height: 50%;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    #publication {
+         height: 85px;
+         margin-bottom: 6px;
+         margin-top: 9px;
+           
+        }
+    
+    select {
+         word-wrap: normal;
+        font-size: 1.5em;
+        }   
+
+
+    #upload-icon {
+            width: 22%;
+        }
+
+    #user-photo {
+        width: 12%;
+        border-radius: 50%;
+        margin-bottom: 4px;
+        }  
+        
+    #post {
+    height: 39px;
+    width: 69px;
+    font-size: 1.5em;
+        }    
+    #post-select {
+
+        height: 39px;
+        
+        }
+        
+    #user-post p {
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-size: 1.9em;
+    }
+
+
+    #user-post {
+        margin-bottom: 20px;
+    
+    }
+/* Estilos icons nav*/
+#nav-icons {
+    width: 80%;
+    margin-top: 11px;
+    margin-right: auto;
+    margin-bottom: 11px;
+    margin-left: auto;
+}
+
+
+#log-out {
+    width: 12%;
+    margin-left: 15%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 12%;
+    margin-right: 8%;
+    margin-left: 15%;
+}
+
+#time-line {
+    width: 12%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.9em;
+    line-height: inherit;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.4em;
+    line-height: inherit;
+}
+}
+
 @media screen and (min-width: 1050px){
 #image-wallpaper {
     background-image: url("./images/wallpaper.jpg");
@@ -387,4 +526,101 @@ h1 {
     bottom: 0px;
     text-align: center;
 }
+
+/*Estilos muro*/
+
+#perfil-usuario {
+    font-size: 2.0em;
+   
 }
+
+#mini-photo {
+    width: 10%;
+
+}
+#publication {
+     height: 85px;
+     margin-bottom: 6px
+       
+    }
+
+select {
+     word-wrap: normal;
+    font-size: 1.5em;
+    }   
+
+
+#upload-icon {
+        width: 22%;
+    }
+
+#user-photo {
+    width: 12%;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    }  
+    
+#post {
+height: 39px;
+width: 69px;
+font-size: 1.5em;
+    }    
+#post-select {
+
+    height: 39px;
+    
+    }
+    
+#user-post p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.75em;
+}
+
+/* Estilos icons nav*/
+#nav-icons {
+    width: 80%;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-bottom: 19px;
+    margin-left: 162px;
+}
+
+
+#log-out {
+    width: 8%;
+    margin-left: 15%;
+    margin-right: 8%;
+}
+
+#perfil {
+    width: 8%;
+    margin-right: 8%;
+    margin-left: 15%;
+}
+
+#time-line {
+    width: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.7em;
+    line-height: inherit;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.4em;
+    line-height: inherit;
+}
+
+
+
+
+}
+

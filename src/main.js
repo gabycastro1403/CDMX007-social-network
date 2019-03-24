@@ -1,7 +1,7 @@
  window.controlador = {
 
    firebase: firebase.initializeApp(config),
-
+  
    registro: () => {
      const register = document.getElementById('register');
 
