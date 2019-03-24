@@ -373,6 +373,20 @@ h1 {
     outline: 0 none;
 }
 
+/* Estilos del perfil */
+
+.profile-photo {
+    width: 40%;
+}
+
+#profile-user {
+    width: 80%; 
+    margin: 0 auto;
+    text-align: center; 
+    color: white;  
+    font-size: 1em; 
+}
+
 @media (min-width: 550px) and (max-width: 649px) {
     /* Estilos icons nav*/
 #nav-icons {
@@ -441,6 +455,14 @@ h1 {
 /*Estilo letra post*/
 #user-post {
     font-size: 1.35em;
+}
+/* Estilos del perfil */
+.profile-photo {
+    width: 30%;
+}
+
+#profile-user {
+    font-size: 1.8em; 
 }
 }
 
@@ -582,6 +604,14 @@ button, input, optgroup, select, textarea {
     font-size: 1.4em;
     line-height: inherit;
 }
+
+/* Estilos del perfil */
+.profile-photo {
+    width: 25%;
+}
+#profile-user {
+    font-size: 2em; 
+}
 }
 
 @media screen and (min-width: 1050px){
@@ -714,6 +744,14 @@ button, input, optgroup, select, textarea {
     font-size: 1.4em;
     line-height: inherit;
 }
+/* Estilos del perfil */
+.profile-photo {
+    width: 20%;
+}
+
+#profile-user {
+    font-size: 2em; 
+}
 }
 
 @media (min-width: 1200px) {
@@ -762,6 +800,14 @@ button, input, optgroup, select, textarea {
 
 #perfil-usuario {
     margin-right: 15%; 
+}
+
+/* Estilos del perfil */
+.profile-photo {
+    width: 20%;
+}
+#profile-user {
+    font-size: 2em; 
 }
 }
 

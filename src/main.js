@@ -373,12 +373,12 @@
          user.providerData.forEach(function (profile) {
            postUser.innerHTML = '';
            if (profile.photoURL == null) {
-             data.innerHTML = `<img src="./images/usuario_chef.jpg">`
+             data.innerHTML = `<img class="profile-photo" src="./images/usuario_chef.jpg">`
            } else {
-             let profileUSer = `<div>
-      <img src="${profile.photoURL}">
+             let profileUSer = `<div id="profile-user">
+      <img class="profile-photo" src="${profile.photoURL}">
       <p>${profile.displayName}</p>
-      <p>${profile.email}</p>;
+      <p>${profile.email}</p>
       </div>`
              data.insertAdjacentHTML('beforeend', profileUSer);
              
