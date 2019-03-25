@@ -649,6 +649,7 @@ button, input, optgroup, select, textarea {
     text-align: center;
 }
 
+
 /*Estilos muro*/
 
 #second-profile {
@@ -687,6 +688,12 @@ select {
 
 #post-select {
     height: 39px;
+    }
+
+    #user-post {
+
+     margin-bottom: 23px;
+      
     }
     
 #user-post p {

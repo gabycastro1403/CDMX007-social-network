@@ -1,3 +1,4 @@
+
 window.controlador = {
 
   firebase: firebase.initializeApp(config),
@@ -27,6 +28,7 @@ window.controlador = {
       } else if (passwordUser != passwordConfirmation) {
         alert("La contraseña debe de ser igual");
       };
+
 
       if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
         db.collection('users').add({
@@ -77,7 +79,6 @@ window.controlador = {
     const passLogin = document.getElementById('password-login');
 
     login.addEventListener('click', () => {
-      console.log(location.hash)
       const mailUser = mailLogin.value;
       const passwordUser = passLogin.value;
       const auth = firebase.auth();
@@ -360,7 +361,7 @@ window.controlador = {
           }
         })
       })
-    });
+      })
 
     logOut.addEventListener('click', () => {
       firebase.auth().signOut();
@@ -368,5 +369,4 @@ window.controlador = {
       location.hash = '/login';
     });
   },
-
 }
