@@ -38,6 +38,17 @@ window.controlador = {
         })
           .then(function (docRef) {
             localStorage.setItem('UID', docRef.id);
+            db.collection("users").get().then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                const mailStorage = localStorage.getItem('UID');
+                if (doc.id == mailStorage) {
+                  let nameNull = doc.data().first;
+                  let lastNull = doc.data().last;
+                  localStorage.setItem("lastNull", lastNull);
+                  localStorage.setItem("nameNull", nameNull);
+                }
+              });
+            });
           })
           .catch(function (error) {
             console.error('Error adding document: ', error);
@@ -45,18 +56,6 @@ window.controlador = {
       } else {
         alert("Todos los campos son obligatorios");
       }
-
-      db.collection("users").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const mailStorage = localStorage.getItem('UID');
-          if (doc.id == mailStorage) {
-            let nameNull = doc.data().first;
-            let lastNull = doc.data().last;
-            localStorage.setItem("lastNull", lastNull);
-            localStorage.setItem("nameNull", nameNull);
-          }
-        });
-      });
 
       firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
@@ -66,6 +65,7 @@ window.controlador = {
         }
       })
     });
+
 
   },
 
