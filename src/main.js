@@ -17,10 +17,10 @@ window.controlador = {
       const mailId = localStorage.setItem("mail", mailUser);
       const auth = firebase.auth();
       var db = firebase.firestore();
-
       const settings = {
         timestampsInSnapshots: true
       };
+
       db.settings(settings);
 
       if (passwordUser === passwordConfirmation) {
@@ -28,7 +28,6 @@ window.controlador = {
       } else if (passwordUser != passwordConfirmation) {
         alert("La contraseña debe de ser igual");
       };
-
 
       if (mailUser != '' && nameUser != '' && passwordUser != '' && passwordConfirmation != '' && lastNameUser != '' && passwordUser === passwordConfirmation) {
         db.collection('users').add({
@@ -63,7 +62,7 @@ window.controlador = {
         if (firebaseUser) {
           location.hash = '/muro';
         } else {
-          console.log('no hay usuario')
+          
         }
       })
     });
@@ -128,7 +127,7 @@ window.controlador = {
         console.log(firebaseUser + 'hay usuario')
         location.hash = '/muro';
       } else {
-        console.log('no hay usuario')
+        
       }
     })
   },
